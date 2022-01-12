@@ -1,4 +1,4 @@
-# CryptoTechnicalAnalysis
+# Crypto Technical Analysis
 Advanced Automated Cryptocurrency Trade Bot
 
 
@@ -62,8 +62,8 @@ A year ago, after realizing that the trading robots in the marketplace have many
 
 ## Donations
 I need financial help to continue the project. With financial support, I can work on the project and create a product that can compete with commercial products by creating a software team. In addition to troubleshooting, I can redesign the current project and add many required features to it. 
-* Bitcoin Address:	1DHvP8j5YEq17DvBTrqVxMi9rGpNqzGFSj
-* Ethereum Address:	0x39eCcdc933CDaA8253967D0e87834e50D0f0eCB4
+* Bitcoin Address:    1DHvP8j5YEq17DvBTrqVxMi9rGpNqzGFSj
+* Ethereum Address:   0x39eCcdc933CDaA8253967D0e87834e50D0f0eCB4
 
 
 ## Product Setup
