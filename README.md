@@ -67,6 +67,12 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Setup
+* Setup Microsoft Sql Server 2017 (Or any other SQL DBMS)
+
+
+
+
+* Setup Chanel
 
 
 ## Product Use
