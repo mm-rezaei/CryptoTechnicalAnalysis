@@ -67,10 +67,10 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Setup
-* Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
+* Video: Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YYhKG-UAr-w/0.jpg)](https://www.youtube.com/watch?v=YYhKG-UAr-w)
+  [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YYhKG-UAr-w/0.jpg)](https://www.youtube.com/watch?v=YYhKG-UAr-w)
 
 
 * Setup Chanel
