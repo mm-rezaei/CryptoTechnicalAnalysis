@@ -70,6 +70,8 @@ I need financial help to continue the project. With financial support, I can wor
 * Video: Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
 
 
+  https://youtu.be/YYhKG-UAr-w
+
   [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YYhKG-UAr-w/0.jpg)](https://www.youtube.com/watch?v=YYhKG-UAr-w)
 
 
