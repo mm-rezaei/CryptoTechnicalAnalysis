@@ -70,7 +70,7 @@ I need financial help to continue the project. With financial support, I can wor
 * Setup Microsoft Sql Server 2017 (Or any other SQL DBMS) and Create Database
 
 <div id="49720407681"><script type="text/JavaScript" src="https://www.aparat.com/embed/dTZ2G?data[rnddiv]=49720407681&data[responsive]=yes"></script></div>
-
+[![Watch the video]](https://aparat.com/v/dTZ2G)
 
 * Setup Chanel
 
