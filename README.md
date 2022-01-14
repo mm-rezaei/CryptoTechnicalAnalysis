@@ -67,13 +67,12 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Setup
-* Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
-  Watch the video below to install the database and apply the required settings.
+* Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database: Watch the video below to install the database and apply the required settings.
 
   [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YYhKG-UAr-w/0.jpg)](https://www.youtube.com/watch?v=YYhKG-UAr-w)
 
 
-* Setup Chanel
+* Setup Chanel: Watch the video below to configure the project and execute it. In order to update the candles, the settings related to connecting to Binance must be made, and then the two values BinanceKey and BinanceSecret must be included in the project code. After placing these two values, you must build the project in VisualStudio 2019. The project build process will take time due to the download of the packages used at that time. It should be noted that the first execution of the project will be very time consuming due to downloading the required information from Binance and building the database.
 
 
 ## Product Use
