@@ -78,6 +78,7 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Use
+The video below shows how to use this product briefly.
 
   [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/96CyiSGLw20/0.jpg)](https://www.youtube.com/watch?v=96CyiSGLw20)
 
