@@ -67,8 +67,8 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Setup
-* Video: Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
-
+* Setup Microsoft SQL Server 2017 (Or any other SQL DBMS) and Create Database
+  Watch the video below to install the database and apply the required settings.
 
   [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YYhKG-UAr-w/0.jpg)](https://www.youtube.com/watch?v=YYhKG-UAr-w)
 
