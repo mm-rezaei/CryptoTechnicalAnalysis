@@ -223,3 +223,14 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
 }
 ```
+* Not: The result of the evaluation is correct if only the condition of its subset is incorrect.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-Not
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
