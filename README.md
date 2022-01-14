@@ -78,7 +78,7 @@ I need financial help to continue the project. With financial support, I can wor
 
 
 ## Product Use
-The video below shows how to use this product briefly.
+The video below shows how to use this product briefly. In reviewing the different parts, an attempt has been made to film in such a way that by working a little with the software, all the features of this product can be used effectively.
 
   [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/96CyiSGLw20/0.jpg)](https://www.youtube.com/watch?v=96CyiSGLw20)
 
