@@ -84,7 +84,7 @@ The video below shows how to use this product briefly. In reviewing the differen
 
 
 ## Strategy and Alarm Samples
-## Logical Operation:
+### Logical Operation:
 * And: The evaluation result is correct only if all the conditions of its subset are correct.
 ```
 #Sample
