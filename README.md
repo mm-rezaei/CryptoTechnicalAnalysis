@@ -153,3 +153,73 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
 }
 ```
+* TrueCount: The result of the evaluation is correct if a certain number of subset conditions are correct. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-TrueCount (True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+	-BtcUsdt:1:Minute5:Increase (Field Name=Ema9Value, Previous Candle No=0)
+	-BtcUsdt:1:Minute5:Increase (Field Name=Ema20Value, Previous Candle No=0)
+}
+```
+* FalseCount: The result of the evaluation is correct if a certain number of subset conditions are incorrect. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-FalseCount (True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+	-BtcUsdt:1:Minute5:Increase (Field Name=Ema9Value, Previous Candle No=0)
+	-BtcUsdt:1:Minute5:Increase (Field Name=Ema20Value, Previous Candle No=0)
+}
+```
+* TrueCountForNumbers: The result of the evaluation is correct if the only condition of its subset is correct for a certain number of the candlesticks number mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-TrueCountForNumbers (Lower Number=0, Upper Number=3, True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* FalseCountForNumbers: The result of the evaluation is correct if the only condition of its subset is incorrect for a certain number of the candlesticks number mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-FalseCountForNumbers (Lower Number=0, Upper Number=3, True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* TrueCountForTimeFrames: The result of the evaluation is correct if the only condition of its subset is correct for a certain number of the timeframes mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-TrueCountForTimeFrames (Lower TimeFrame=Minute1, Upper TimeFrame=Minute5, True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* FalseCountForTimeFrames: The result of the evaluation is correct if the only condition of its subset is incorrect for a certain number of the timeframes mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-FalseCountForTimeFrames (Lower TimeFrame=Minute1, Upper TimeFrame=Minute5, True Count=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
