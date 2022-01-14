@@ -1,0 +1,127 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Forms.EstablishmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:datamodels="clr-namespace:TechnicalAnalysisTools.DataModels"
+        mc:Ignorable="d"
+        Name="WindowEstablishment"
+        Icon="../Images/Binance.png"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        Loaded="WindowEstablishment_Loaded"
+        MouseDown="WindowEstablishment_MouseDown"
+        Closing="WindowEstablishment_Closing"
+        Title="Chanel Trading Server" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <datamodels:SessionEstablishmentDataModel x:Key="SessionEstablishment" />
+        <datamodels:ProcessInfoDataModel x:Key="ProcessInfo" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Name="MenuMain" Grid.Row="0" Height="24" Padding="3">
+            <MenuItem Header="File">
+                <MenuItem Name="MenuItemExit" Header="Exit" Click="MenuItemExit_Click" />
+            </MenuItem>
+            <MenuItem Header="Server">
+                <MenuItem Name="MenuItemServerConfiguration" Header="Server Configuration" Click="MenuItemServerConfiguration_Click" />
+                <Separator/>
+                <MenuItem Name="MenuItemStartServer" Header="Start Server" Click="MenuItemStartServer_Click" />
+                <MenuItem Name="MenuItemStopServer" Header="Stop Server" IsEnabled="False" Click="MenuItemStopServer_Click" />
+            </MenuItem>
+            <MenuItem Header="Alarm">
+                <MenuItem Name="MenuItemAddCompiledScript" Header="Add Compiled Script" Click="MenuItemAddCompiledScript_Click" />
+                <MenuItem Name="MenuItemRemoveCompiledScript" Header="Remove Compiled Script" Click="MenuItemRemoveCompiledScript_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="26" />
+            </Grid.RowDefinitions>
+            <dxdo:DockLayoutManager Grid.Row="0" Background="Transparent">
+                <dxdo:DockLayoutManager.AutoHideGroups>
+                    <dxdo:AutoHideGroup DockType="Left">
+                        <dxdo:LayoutPanel Caption="Server Logs" MinWidth="500" AllowClose="False" AllowDrag="False" AllowFloat="False">
+                            <TextBox Name="TextBoxLog" Margin="4" TextWrapping="NoWrap" AcceptsReturn="True" Foreground="Black" Background="Transparent" BorderThickness="0" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseDoubleClick="TextBoxLog_MouseDoubleClick" MouseEnter="TextBoxLog_MouseEnter" MouseLeave="TextBoxLog_MouseLeave" />
+                        </dxdo:LayoutPanel>
+                    </dxdo:AutoHideGroup>
+                    <dxdo:AutoHideGroup DockType="Left">
+                        <dxdo:LayoutPanel Caption="Server Overview" MinWidth="500" AllowClose="False" AllowDrag="False" AllowFloat="False">
+                            <Grid DataContext="{Binding Source={StaticResource ProcessInfo}}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Process Id</TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Process Name</TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Start Time</TextBlock>
+                                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Process CPU Usage %</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Total CPU Usage %</TextBlock>
+                                <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Memory Usage Mb</TextBlock>
+                                <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Peak Memory Usage Mb</TextBlock>
+                                <TextBlock Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Threads Count</TextBlock>
+                                <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Symbols Count</TextBlock>
+                                <TextBlock Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" FontSize="12" FontWeight="DemiBold" Foreground="Black">Connected Clients Count</TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding ProcessId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding ProcessName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding StartTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding ProcessCpuUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding TotalCpuUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding MemoryUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="7" Grid.Column="2" Text="{Binding PeakMemoryUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding ActiveThreads, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="9" Grid.Column="2" Text="{Binding SupportedSymbol, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding ConnectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Foreground="DarkBlue" />
+                            </Grid>
+                        </dxdo:LayoutPanel>
+                    </dxdo:AutoHideGroup>
+                </dxdo:DockLayoutManager.AutoHideGroups>
+            </dxdo:DockLayoutManager>
+            <Grid  Grid.Row="1" Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="185" />
+                </Grid.ColumnDefinitions>
+                <StatusBar Grid.Column="0" Padding="4 0 0 0" Background="LightGray">
+                    <Ellipse Name="EllipseServiceActivation" Width="12" Height="12" Fill="Red" Canvas.Left="135" Canvas.Top="25"/>
+                </StatusBar>
+                <Border Name="BorderAllDataLoading" Grid.Column="1" BorderThickness="1 0 0 0" BorderBrush="Gray">
+                    <ProgressBar Name="ProgressBarAllDataLoading" Minimum="0" Maximum="100" BorderThickness="0" Background="Transparent" Padding="0" Margin="0"></ProgressBar>
+                </Border>
+                <Border Grid.Column="2" BorderThickness="1 0 0 0" BorderBrush="Gray">
+                    <TextBlock Name="TextBlockDataSaving" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border Grid.Column="3" BorderThickness="1 0 0 0" BorderBrush="Gray">
+                    <TextBlock Name="TextBlockSymbolSync" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border Grid.Column="4" BorderThickness="1 0 0 0" BorderBrush="Gray">
+                    <TextBlock Name="TextBlockCurrentTime" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

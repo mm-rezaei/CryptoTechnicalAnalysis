@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockSharp.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:StockSharp.Configuration.CandleElement">
+            <summary>
+            Represents the custom candle.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.CandleElement.Type">
+            <summary>
+            Custom candle.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.CandleElementCollection">
+            <summary>
+            Represents the custom candles section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.CandleElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.CandleElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.DiagramElement">
+            <summary>
+            Represents the custom diagram element.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.DiagramElement.Type">
+            <summary>
+            Custom diagram element.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.DiagramElementCollection">
+            <summary>
+            Represents the custom diagram elements section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.DiagramElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.DiagramElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.Extensions">
+            <summary>
+            Extension class.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.Extensions.RootSection">
+            <summary>
+            Instance of the root section <see cref="T:StockSharp.Configuration.StockSharpSection"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.TryLoadCredentials(Ecng.ComponentModel.ServerCredentials)">
+            <summary>
+            Try load credentials from <see cref="F:StockSharp.Configuration.Paths.CompanyPath"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+            <returns><see langword="true"/> if the specified credentials was loaded successfully, otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.SaveCredentials(Ecng.ComponentModel.ServerCredentials)">
+            <summary>
+            Save the credentials to <see cref="F:StockSharp.Configuration.Paths.CompanyPath"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.SaveCredentials(Ecng.ComponentModel.ServerCredentials,System.Boolean)">
+            <summary>
+            Save the credentials to <see cref="F:StockSharp.Configuration.Paths.CompanyPath"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+            <param name="savePassword">Save password.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.IndicatorElement">
+            <summary>
+            Represents the custom indicator.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.IndicatorElement.Type">
+            <summary>
+            Custom indicator.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.IndicatorElement.Painter">
+            <summary>
+            Custom indicator painter.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.IndicatorElementCollection">
+            <summary>
+            Represents the custom indicators section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.IndicatorElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.IndicatorElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for </param>
+        </member>
+        <member name="T:StockSharp.Configuration.InMemoryMessageAdapterProvider">
+            <summary>
+            In memory configuration message adapter's provider.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.InMemoryMessageAdapterProvider.#ctor(System.Collections.Generic.IEnumerable{StockSharp.Messages.IMessageAdapter})">
+            <summary>
+            Initialize <see cref="T:StockSharp.Configuration.InMemoryMessageAdapterProvider"/>.
+            </summary>
+            <param name="currentAdapters">All currently available adapters.</param>
+        </member>
+        <member name="P:StockSharp.Configuration.InMemoryMessageAdapterProvider.CurrentAdapters">
+            <inheritdoc />
+        </member>
+        <member name="P:StockSharp.Configuration.InMemoryMessageAdapterProvider.PossibleAdapters">
+            <inheritdoc />
+        </member>
+        <member name="M:StockSharp.Configuration.InMemoryMessageAdapterProvider.GetAdapters">
+            <summary>
+            Get all available adapters.
+            </summary>
+            <returns>All available adapters.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.InMemoryMessageAdapterProvider.CreateStockSharpAdapters(Ecng.Common.IdGenerator,System.String,System.Security.SecureString)">
+            <inheritdoc />
+        </member>
+        <member name="T:StockSharp.Configuration.Paths">
+            <summary>
+            System paths.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.Paths.Title">
+            <summary>
+            App title.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.CompanyPath">
+            <summary>
+            The path to directory with all applications.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.AppDataPath">
+            <summary>
+            The path to the settings directory.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.PlatformConfigurationFile">
+            <summary>
+            The path to the configuration file of platform definition.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.ProxyConfigurationFile">
+            <summary>
+            The path to the configuration file of proxy settings.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.SecurityNativeIdDir">
+            <summary>
+            The path to the directory with native security identifiers.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.SecurityMappingDir">
+            <summary>
+            The path to the directory with securities id mapping.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.SecurityExtendedInfo">
+            <summary>
+            The path to the directory with securities extended info.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.StorageDir">
+            <summary>
+            The path to the directory with market data.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Configuration.Paths.SnapshotsDir">
+            <summary>
+            The path to the directory with snapshots of market data.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetWebSiteUrl">
+            <summary>
+            Get website url.
+            </summary>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetUserUrl(System.Int64)">
+            <summary>
+            Get user url.
+            </summary>
+            <param name="userId">User id.</param>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetRobotLink(System.Int64)">
+            <summary>
+            Get strategy url.
+            </summary>
+            <param name="robotId">The strategy identifier.</param>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetFileLink(System.Object)">
+            <summary>
+            Get file url.
+            </summary>
+            <param name="fileId">File ID.</param>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetDocUrl(System.String)">
+            <summary>
+            To create localized url.
+            </summary>
+            <param name="docUrl">Help topic.</param>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetOpenAccountUrl">
+            <summary>
+            Get open account url.
+            </summary>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetSignUpUrl">
+            <summary>
+            Get sign up url.
+            </summary>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Paths.GetForgotUrl">
+            <summary>
+            Get forgot password url.
+            </summary>
+            <returns>Localized url.</returns>
+        </member>
+        <member name="T:StockSharp.Configuration.StockSharpSection">
+            <summary>
+            Represents the root StockSharp section in a configuration file.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomCandles">
+            <summary>
+            Custom candles.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomIndicators">
+            <summary>
+            Custom indicators.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomDiagramElements">
+            <summary>
+            Custom diagram elements.
+            </summary>
+        </member>
+    </members>
+</doc>

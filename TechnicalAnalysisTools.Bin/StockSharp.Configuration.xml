@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockSharp.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:StockSharp.Configuration.CandleElement">
+            <summary>
+            Represents the custom candle.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.CandleElement.Type">
+            <summary>
+            Custom candle.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.CandleElementCollection">
+            <summary>
+            Represents the custom candles section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.CandleElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.CandleElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.ConnectionElement">
+            <summary>
+            Represents the custom message adapter.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.ConnectionElement.Type">
+            <summary>
+            Custom message adapter.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.ConnectionElementCollection">
+            <summary>
+            Represents the custom message adapters section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.ConnectionElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.ConnectionElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.DiagramElement">
+            <summary>
+            Represents the custom diagram element.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.DiagramElement.Type">
+            <summary>
+            Custom diagram element.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.DiagramElementCollection">
+            <summary>
+            Represents the custom diagram elements section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.DiagramElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.DiagramElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        </member>
+        <member name="T:StockSharp.Configuration.Extensions">
+            <summary>
+            Extension class.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.Extensions.RootSection">
+            <summary>
+            Instance of the root section <see cref="T:StockSharp.Configuration.StockSharpSection"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.Configure(StockSharp.Algo.Connector,System.Windows.Window)">
+            <summary>
+            Configure connection using <see cref="T:StockSharp.Xaml.ConnectorWindow"/>.
+            </summary>
+            <param name="connector">The connection.</param>
+            <param name="owner">UI thread owner.</param>
+            <returns><see langword="true"/> if the specified connection was configured, otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.Configure(StockSharp.Algo.BasketMessageAdapter,System.Windows.Window)">
+            <summary>
+            Configure connection using <see cref="T:StockSharp.Xaml.ConnectorWindow"/>.
+            </summary>
+            <param name="adapter">The connection.</param>
+            <param name="owner">UI thread owner.</param>
+            <returns><see langword="true"/> if the specified connection was configured, otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="P:StockSharp.Configuration.Extensions.Adapters">
+            <summary>
+            All available adapters.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.Configure(StockSharp.Algo.BasketMessageAdapter,System.Windows.Window,System.Boolean@,Ecng.Serialization.SettingsStorage@)">
+            <summary>
+            Configure connection using <see cref="T:StockSharp.Xaml.ConnectorWindow"/>.
+            </summary>
+            <param name="adapter">The connection.</param>
+            <param name="owner">UI thread owner.</param>
+            <param name="autoConnect">Auto connect.</param>
+            <param name="windowSettings"><see cref="T:StockSharp.Xaml.ConnectorWindow"/> settings.</param>
+            <returns><see langword="true"/> if the specified connection was configured, otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.GetIndicatorTypes">
+            <summary>
+            Get all indicator types.
+            </summary>
+            <returns>All indicator types.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.FillIndicators(StockSharp.Xaml.Charting.IChart)">
+            <summary>
+            Fill <see cref="P:StockSharp.Xaml.Charting.IChart.IndicatorTypes"/> using <see cref="M:StockSharp.Configuration.Extensions.GetIndicatorTypes"/>.
+            </summary>
+            <param name="chart">Chart.</param>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.GetDiagramElements">
+            <summary>
+            Get all diagram elements.
+            </summary>
+            <returns>All diagram elements.</returns>
+        </member>
+        <member name="M:StockSharp.Configuration.Extensions.GetCandles">
+            <summary>
+            Get all candles.
+            </summary>
+            <returns>All candles.</returns>
+        </member>
+        <member name="T:StockSharp.Configuration.IndicatorElement">
+            <summary>
+            Represents the custom indicator.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.IndicatorElement.Type">
+            <summary>
+            Custom indicator.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.IndicatorElement.Painter">
+            <summary>
+            Custom indicator painter.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.IndicatorElementCollection">
+            <summary>
+            Represents the custom indicators section in a configuration file.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.IndicatorElementCollection.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </summary>
+            <returns>
+            A newly created <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+        </member>
+        <member name="M:StockSharp.Configuration.IndicatorElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key for a specified configuration element when overridden in a derived class.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"/>.
+            </returns>
+            <param name="element">The <see cref="T:System.Configuration.ConfigurationElement"/> to return the key for </param>
+        </member>
+        <member name="T:StockSharp.Configuration.InMemoryConfigurationMessageAdapterProvider">
+            <summary>
+            In memory configuration message adapter's provider.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Configuration.InMemoryConfigurationMessageAdapterProvider.#ctor">
+            <summary>
+            Initialize <see cref="T:StockSharp.Configuration.InMemoryConfigurationMessageAdapterProvider"/>.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Configuration.StockSharpSection">
+            <summary>
+            Represents the root StockSharp section in a configuration file.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomConnections">
+            <summary>
+            Custom message adapters.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomCandles">
+            <summary>
+            Custom candles.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomIndicators">
+            <summary>
+            Custom indicators.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Configuration.StockSharpSection.CustomDiagramElements">
+            <summary>
+            Custom diagram elements.
+            </summary>
+        </member>
+    </members>
+</doc>

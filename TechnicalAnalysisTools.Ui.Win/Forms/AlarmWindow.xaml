@@ -1,0 +1,91 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Ui.Win.Forms.AlarmWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:convertors="clr-namespace:TechnicalAnalysisTools.Shared.ValueConverters;assembly=TechnicalAnalysisTools.Shared"
+        mc:Ignorable="d"
+        Name="WindowAlarm"
+        Icon="../Images/Binance.png"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
+        Title="Alarms" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="AlarmViewRowStyle" TargetType="dxg:RowControl">
+            <Setter Property="Foreground" Value="{Binding DataContext.AlarmForgroundColor}" />
+            <Setter Property="Background" Value="{Binding DataContext.AlarmBackgroundColor}" />
+        </Style>
+        <convertors:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+        <convertors:FloatNumberToStringConverter x:Key="FloatNumberToStringConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <dxg:GridControl Name="GridControlAlarms" Grid.Row="0">
+            <dxg:GridControl.View>
+                <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" DetailHeaderContent="Alarms" RowStyle="{StaticResource AlarmViewRowStyle}">
+                    <dxg:TableView.RowCellMenuCustomizations>
+                        <dxb:BarButtonItem Name="MenuItemSeenAlarm" Content="Seen Alarm Alert" ItemClick="MenuItemSeenAlarm_Click"/>
+                        <dxb:BarButtonItem Name="MenuItemSeenAllAlarm" Content="Seen All Alarm Alerts" ItemClick="MenuItemSeenAllAlarm_Click"/>
+                        <dxb:BarItemSeparator/>
+                        <dxb:BarButtonItem Name="MenuItemEnableDisableAlarm" Content="Enable/Disable Alarm Alert" ItemClick="MenuItemEnableDisableAlarm_ItemClick"/>
+                        <dxb:BarItemSeparator/>
+                        <dxb:BarButtonItem Name="MenuItemViewScript" Content="View Alarm Script" ItemClick="MenuItemViewScript_ItemClick"/>
+                        <dxb:BarButtonItem Name="MenuItemEvaluateAlarmViewerWindow" Content="_Evaluate Alarm" ItemClick="MenuItemEvaluateAlarmViewerWindow_ItemClick" />
+                        <dxb:BarItemSeparator/>
+                        <dxb:BarButtonItem Name="MenuItemDeleteAlarm" Content="Delete Alarm" ItemClick="MenuItemDeleteAlarm_Click"/>
+                    </dxg:TableView.RowCellMenuCustomizations>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Width="80" Header="Name" FieldName="Name" />
+                <dxg:GridColumn Width="80" Header="Symbol" FieldName="Symbol" />
+                <dxg:GridColumn Width="80" Header="Position" FieldName="Position" />
+                <dxg:GridColumn Header="Last Alarm" FieldName="LastAlarm">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock Margin="3 0 0 0"  Text="{Binding Value,  Converter={StaticResource  DateTimeToStringConverter}}"/>
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn Width="80" Header="Not Seen Enabled Count" FieldName="NotSeenEnabledCount">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock Text="{Binding Value}" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn Width="80" Header="Enabled Count" FieldName="TotalEnabledCount">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock Text="{Binding Value}" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn Width="80" Header="Price" FieldName="Price">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+        <Grid  Grid.Row="1" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="28" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" Margin="0 0 4 0" BorderThickness="0 0 0 0" BorderBrush="Gray" Background="LightGray">
+                <Image Name="ImageSound" Source="../Images/Unmute.png" Width="16" Height="16" Cursor="Hand" MouseDown="ImageSound_MouseDown" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

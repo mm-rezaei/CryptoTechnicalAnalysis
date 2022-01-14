@@ -1,0 +1,201 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Ui.Win.Forms.AlarmFactoryWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:self="clr-namespace:TechnicalAnalysisTools.Shared.DataModels;assembly=TechnicalAnalysisTools.Shared"
+        mc:Ignorable="d"
+        Name="WindowAlarmFactory"
+        Icon="../Images/Binance.png"
+        WindowStartupLocation="CenterScreen"
+        Title="Alarm Factory" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="4 4 2 4">
+            <GroupBox.Header>
+                <TextBlock Text="Rules Tree" Foreground="RoyalBlue" />
+            </GroupBox.Header>
+            <TreeView Name="TreeViewAlarmRules" Margin="0 6 0 0" BorderThickness="0" FontSize="12" SelectedItemChanged="TreeViewAlarmRules_SelectedItemChanged">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type self:AlarmItemDataModel}" ItemsSource="{Binding Items}">
+                        <StackPanel Margin="4 2" Orientation="Horizontal">
+                            <Ellipse Width="10" Height="10" Fill="{Binding TreeItemColor}"/>
+                            <TextBlock Margin="4 0 0 0" Text="{Binding Title}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </GroupBox>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Name="GroupBoxMain" Grid.Row="0" Margin="2 4 4 2">
+                <GroupBox.Header>
+                    <TextBlock Text="Root Element" Foreground="RoyalBlue" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" VerticalAlignment="Center" />
+                    <TextBox Name="TextBoxMainName" Grid.Row="0" Grid.Column="1" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Symbol:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainSymbol" Grid.Row="1" Grid.Column="1" Height="24" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Position:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainPosition" Grid.Row="2" Grid.Column="1" Height="24" />
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Root Operation:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainOperation" Grid.Row="3" Grid.Column="1" Height="24" SelectionChanged="ComboBoxMainOperation_SelectionChanged" />
+                    <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Name="ButtonMainAddOperation" Grid.Column="0" Height="24" Content="Add Root" Click="ButtonMainAddOperation_Click" />
+                        <Button Name="ButtonMainChangeOperation" Grid.Column="2" Height="24" Content="Change" Click="ButtonMainChangeOperation_Click" />
+                        <Button Name="ButtonMainSaveOperation" Grid.Column="4" Height="24" Content="Save" Click="ButtonMainSaveOperation_Click" />
+                    </Grid>
+                    <TextBlock Name="TextBlockMainOperand1" Grid.Row="4" Grid.Column="0" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainOperand1" Grid.Row="4" Grid.Column="1" Height="24" />
+                    <TextBox Name="TextBoxMainOperand1" Grid.Row="4" Grid.Column="1" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockMainOperand2" Grid.Row="4" Grid.Column="3" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainOperand2" Grid.Row="4" Grid.Column="4" Height="24" />
+                    <TextBox Name="TextBoxMainOperand2" Grid.Row="4" Grid.Column="4" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockMainOperand3" Grid.Row="4" Grid.Column="6" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxMainOperand3" Grid.Row="4" Grid.Column="7" Height="24" />
+                    <TextBox Name="TextBoxMainOperand3" Grid.Row="4" Grid.Column="7" Height="24" VerticalContentAlignment="Center" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="GroupBoxNewLogical" Grid.Row="1" Margin="2 2 4 2">
+                <GroupBox.Header>
+                    <TextBlock Text="Logical Operations" Foreground="RoyalBlue" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="New Operation:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewLogicalOperation" Grid.Row="0" Grid.Column="1" Height="24" SelectionChanged="ComboBoxNewLogicalOperation_SelectionChanged" />
+                    <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Name="ButtonAddNewLogicalOperation" Grid.Column="0" Height="24" Content="Add Child" Click="ButtonAddNewLogicalOperation_Click" />
+                        <Button Name="ButtonChangeNewLogicalOperation" Grid.Column="2" Height="24" Content="Change" Click="ButtonChangeNewLogicalOperation_Click" />
+                        <Button Name="ButtonRemoveNewLogicalOperation" Grid.Column="4" Height="24" Content="Remove" Click="ButtonRemoveNewLogicalOperation_Click" />
+                    </Grid>
+                    <TextBlock Name="TextBlockNewLogicalOperationOperand1" Grid.Row="1" Grid.Column="0" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewLogicalOperationOperand1" Grid.Row="1" Grid.Column="1" Height="24" />
+                    <TextBox Name="TextBoxNewLogicalOperationOperand1" Grid.Row="1" Grid.Column="1" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockNewLogicalOperationOperand2" Grid.Row="1" Grid.Column="3" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewLogicalOperationOperand2" Grid.Row="1" Grid.Column="4" Height="24" />
+                    <TextBox Name="TextBoxNewLogicalOperationOperand2" Grid.Row="1" Grid.Column="4" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockNewLogicalOperationOperand3" Grid.Row="1" Grid.Column="6" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewLogicalOperationOperand3" Grid.Row="1" Grid.Column="7" Height="24" />
+                    <TextBox Name="TextBoxNewLogicalOperationOperand3" Grid.Row="1" Grid.Column="7" Height="24" VerticalContentAlignment="Center" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="GroupBoxNew" Grid.Row="2" Margin="2 2 4 2">
+                <GroupBox.Header>
+                    <TextBlock Text="Other Operations" Foreground="RoyalBlue" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="New Operation:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperation" Grid.Row="0" Grid.Column="1" Height="24" SelectionChanged="ComboBoxNewOperation_SelectionChanged" />
+                    <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Name="ButtonAddNewOperation" Grid.Column="0" Height="24" Content="Add Child" Click="ButtonAddNewOperation_Click" />
+                        <Button Name="ButtonChangeNewOperation" Grid.Column="2" Height="24" Content="Change" Click="ButtonChangeNewOperation_Click" />
+                        <Button Name="ButtonRemoveNewOperation" Grid.Column="4" Height="24" Content="Remove" Click="ButtonRemoveNewOperation_Click" />
+                    </Grid>
+                    <TextBlock Name="TextBlockNewOperationOperand1" Grid.Row="1" Grid.Column="0" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationOperand1" Grid.Row="1" Grid.Column="1" Height="24" />
+                    <TextBox Name="TextBoxNewOperationOperand1" Grid.Row="1" Grid.Column="1" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockNewOperationOperand2" Grid.Row="1" Grid.Column="3" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationOperand2" Grid.Row="1" Grid.Column="4" Height="24" />
+                    <TextBox Name="TextBoxNewOperationOperand2" Grid.Row="1" Grid.Column="4" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Name="TextBlockNewOperationOperand3" Grid.Row="1" Grid.Column="6" Text="Parameter:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationOperand3" Grid.Row="1" Grid.Column="7" Height="24" />
+                    <TextBox Name="TextBoxNewOperationOperand3" Grid.Row="1" Grid.Column="7" Height="24" VerticalContentAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Symbol:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationSymbol" Grid.Row="2" Grid.Column="1" Height="24" />
+                    <TextBlock Name="TextBlockNewOperationTimeFrame" Grid.Row="3" Grid.Column="0" Text="TimeFrame:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationTimeFrame" Grid.Row="3" Grid.Column="1" Height="24" />
+                    <TextBlock Name="TextBlockNewOperationCandleNumber" Grid.Row="4" Grid.Column="0" Text="Candle No:" VerticalAlignment="Center" />
+                    <ComboBox Name="ComboBoxNewOperationCandleNumber" Grid.Row="4" Grid.Column="1" Height="24" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <GroupBox Grid.Row="1" Grid.Column="1" Margin="2 2 4 4">
+            <GroupBox.Header>
+                <TextBlock Text="Rules Text" Foreground="RoyalBlue" />
+            </GroupBox.Header>
+            <TextBox Name="TextBoxAlarmRules" Margin="0 6 0 0" FontSize="13" FontWeight="SemiBold" Foreground="DarkBlue" IsReadOnly="True" BorderThickness="0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+        </GroupBox>
+    </Grid>
+</Window>

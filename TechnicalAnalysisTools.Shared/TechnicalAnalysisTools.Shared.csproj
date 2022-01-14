@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6C6DCE1-E3D5-4056-A829-FB7C7E045665}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TechnicalAnalysisTools.Shared</RootNamespace>
+    <AssemblyName>TechnicalAnalysisTools.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\TechnicalAnalysisTools.Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\TechnicalAnalysisTools.Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1.Extensions, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\OperationParameterAttribute.cs" />
+    <Compile Include="Auxiliaries\AesEncryptionAuxiliary.cs" />
+    <Compile Include="Conditions\AndCondition.cs" />
+    <Compile Include="Conditions\AndForNumbersCondition.cs" />
+    <Compile Include="Conditions\AndForTimeFramesCondition.cs" />
+    <Compile Include="Conditions\CandleOperationConditionBase.cs" />
+    <Compile Include="Conditions\ConditionBase.cs" />
+    <Compile Include="Conditions\CrossDownAnotherFieldCondition.cs" />
+    <Compile Include="Conditions\CrossDownCondition.cs" />
+    <Compile Include="Conditions\CrossUpAnotherFieldCondition.cs" />
+    <Compile Include="Conditions\CrossUpCondition.cs" />
+    <Compile Include="Conditions\DecreaseCondition.cs" />
+    <Compile Include="Conditions\DivergenceCondition.cs" />
+    <Compile Include="Conditions\DumpCondition.cs" />
+    <Compile Include="Conditions\EqualCondition.cs" />
+    <Compile Include="Conditions\EqualFieldsCondition.cs" />
+    <Compile Include="Conditions\FalseCountCondition.cs" />
+    <Compile Include="Conditions\FalseCountForNumbersCondition.cs" />
+    <Compile Include="Conditions\FalseCountForTimeFramesCondition.cs" />
+    <Compile Include="Conditions\GreaterFieldThanAnotherFieldCondition.cs" />
+    <Compile Include="Conditions\GreaterThanCondition.cs" />
+    <Compile Include="Conditions\ICondition.cs" />
+    <Compile Include="Conditions\IncreaseCondition.cs" />
+    <Compile Include="Conditions\IsCandleDayOfMonthBetweenCondition.cs" />
+    <Compile Include="Conditions\IsCandleDayOfWeekCondition.cs" />
+    <Compile Include="Conditions\IsCandleHourBetweenCondition.cs" />
+    <Compile Include="Conditions\IsCandleMinuteBetweenCondition.cs" />
+    <Compile Include="Conditions\IsCandleTypeCondition.cs" />
+    <Compile Include="Conditions\IsFirstTimeFrameCandleCondition.cs" />
+    <Compile Include="Conditions\IsLastTimeFrameCandleCondition.cs" />
+    <Compile Include="Conditions\IsStockExchangeOpenCondition.cs" />
+    <Compile Include="Conditions\LogicalOperationConditionBase.cs" />
+    <Compile Include="Conditions\LogicalOperationForNumbersConditionBase.cs" />
+    <Compile Include="Conditions\LogicalOperationForTimeFramesConditionBase.cs" />
+    <Compile Include="Conditions\NotCondition.cs" />
+    <Compile Include="Conditions\OrCondition.cs" />
+    <Compile Include="Conditions\OrForNumbersCondition.cs" />
+    <Compile Include="Conditions\OrForTimeFramesCondition.cs" />
+    <Compile Include="Conditions\PumpCondition.cs" />
+    <Compile Include="Conditions\ScriptCondition.cs" />
+    <Compile Include="Conditions\ScriptConditionBase.cs" />
+    <Compile Include="Conditions\SmallerFieldThanAnotherFieldCondition.cs" />
+    <Compile Include="Conditions\SmallerThanCondition.cs" />
+    <Compile Include="Conditions\TouchCondition.cs" />
+    <Compile Include="Conditions\TouchFieldCondition.cs" />
+    <Compile Include="Conditions\TrueCountCondition.cs" />
+    <Compile Include="Conditions\TrueCountForNumbersCondition.cs" />
+    <Compile Include="Conditions\TrueCountForTimeFramesCondition.cs" />
+    <Compile Include="DataModels\AlarmItemDataModel.cs" />
+    <Compile Include="DataModels\GridOrderDataModel.cs" />
+    <Compile Include="DataModels\StrategyTestDataModel.cs" />
+    <Compile Include="DataModels\CandleDataModel.cs" />
+    <Compile Include="DataModels\ServerStatusDataModel.cs" />
+    <Compile Include="DataModels\StrategyTestLogDataModel.cs" />
+    <Compile Include="DataModels\StrategyTestOrderDataModel.cs" />
+    <Compile Include="DataModels\StrategyTestReportDataModel.cs" />
+    <Compile Include="DataModels\StrategyTestStatusDataModel.cs" />
+    <Compile Include="DataModels\SymbolAlarmDataModel.cs" />
+    <Compile Include="DataModels\SymbolDataModel.cs" />
+    <Compile Include="DataModels\SymbolSupportsResistancesDataModel.cs" />
+    <Compile Include="DataModels\SymbolTimeFrameDataModel.cs" />
+    <Compile Include="DataModels\TradeSubOrderDataModel.cs" />
+    <Compile Include="DataModels\TrailingOrderDataModel.cs" />
+    <Compile Include="DataObjects\CommandDataObject.cs" />
+    <Compile Include="DataObjects\UiClientInitializedDataObject.cs" />
+    <Compile Include="Delegates\ConditionResultEvaluatedHandlerDelegate.cs" />
+    <Compile Include="Delegates\OperationCandleRequestedHandlerDelegate.cs" />
+    <Compile Include="Delegates\AlarmsReceivedHandlerDelegate.cs" />
+    <Compile Include="Delegates\StrategyTestStatusUpdatedHandlerDelegate.cs" />
+    <Compile Include="Enumerations\BinanceConnectionStatusModes.cs" />
+    <Compile Include="Enumerations\CandleDataModelFields.cs" />
+    <Compile Include="Enumerations\CandleType.cs" />
+    <Compile Include="Enumerations\CommandTypes.cs" />
+    <Compile Include="Enumerations\ConditionOperations.cs" />
+    <Compile Include="Enumerations\DivergenceDirectionTypes.cs" />
+    <Compile Include="Enumerations\DivergenceIndicatorTypes.cs" />
+    <Compile Include="Enumerations\IndicatorType.cs" />
+    <Compile Include="Enumerations\StockExchanges.cs" />
+    <Compile Include="Enumerations\StrategyTestPriceMovementFlowModes.cs" />
+    <Compile Include="Enumerations\StrategyTestStatusTypes.cs" />
+    <Compile Include="Enumerations\TradeSubOrderActions.cs" />
+    <Compile Include="Enumerations\TradeSubOrderTypes.cs" />
+    <Compile Include="Enumerations\TradeAmountModes.cs" />
+    <Compile Include="Enumerations\TradeSubOrderModes.cs" />
+    <Compile Include="Enumerations\TradeSubOrderTriggerModes.cs" />
+    <Compile Include="Enumerations\PositionTypes.cs" />
+    <Compile Include="Enumerations\SymbolTypes.cs" />
+    <Compile Include="Enumerations\TimeFrames.cs" />
+    <Compile Include="Enumerations\UiClientTypes.cs" />
+    <Compile Include="Helpers\AssemblyHelper.cs" />
+    <Compile Include="Helpers\SharedAddressHelper.cs" />
+    <Compile Include="Helpers\AlarmHelper.cs" />
+    <Compile Include="Helpers\CommandHelper.cs" />
+    <Compile Include="Helpers\SharedConstantHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
+    <Compile Include="Helpers\OperationConditionHelper.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="Helpers\StockExchangesTimeHelper.cs" />
+    <Compile Include="Helpers\TimeFrameHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueConverters\AlarmEvaluationValueToBackgroundBrushConverter.cs" />
+    <Compile Include="ValueConverters\AlarmEvaluationValueToForgroundBrushConverter.cs" />
+    <Compile Include="ValueConverters\DateTimeToStringConverter.cs" />
+    <Compile Include="ValueConverters\DivergenceValueToBrushConverter.cs" />
+    <Compile Include="ValueConverters\PercentFloatNumberToPercentStringConverter.cs" />
+    <Compile Include="ValueConverters\FloatNumberToStringConverter.cs" />
+    <Compile Include="ValueConverters\SymbolIsAscendingValueToBrushConverter.cs" />
+    <Compile Include="ValueConverters\TimeFrameIsAscendingValueToBrushConverter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

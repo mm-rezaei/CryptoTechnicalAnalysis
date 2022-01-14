@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>StockSharp.Licensing</name>
+  </assembly>
+  <members>
+    <member name="T:StockSharp.Licensing.License">
+      <summary>
+            License.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.License.#ctor(System.Byte[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Licensing.License" />.
+            </summary>
+      <param name="body">License body.</param>
+    </member>
+    <member name="P:StockSharp.Licensing.License.FileName">
+      <summary>
+            License file name.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Version">
+      <summary>
+            File format version.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Id">
+      <summary>
+            License id.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.IssuedTo">
+      <summary>
+            Licensee (full name or company name <see cref="P:StockSharp.Licensing.License.Company" />).
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Company">
+      <summary>
+            The name of the company for which the license is issued. The value is equal to <see langword="null" /> if a license is granted to an individual.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.IssuedBy">
+      <summary>
+            Issued by.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.IssuedDate">
+      <summary>
+            Date of licensing.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.ExpirationDate">
+      <summary>
+            License expiry date.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.HardwareId">
+      <summary>
+            Hardware id of the computer for which the license is issued.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Account">
+      <summary>
+            The account number for which the license is issued.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Features">
+      <summary>
+            Possible feature list.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.Body">
+      <summary>
+            License body.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.ExpireAction">
+      <summary>
+            Action when the license expired.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.License.StrategySubscriptions">
+      <summary>
+            Active subscriptions.
+            </summary>
+    </member>
+    <member name="T:StockSharp.Licensing.LicenseErrorLogSource">
+      <summary>
+            Log source, send information about license errors <see cref="E:StockSharp.Licensing.LicenseHelper.LicenseError" />.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseErrorLogSource.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Licensing.LicenseErrorLogSource" />.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.LicenseErrorLogSource.Name">
+      <inheritdoc />
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseErrorLogSource.DisposeManaged">
+      <summary>
+            Release resources.
+            </summary>
+    </member>
+    <member name="T:StockSharp.Licensing.LicenseExpireActions">
+      <summary>
+            Actions when a license expired.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.LicenseExpireActions.PreventWork">
+      <summary>
+            Prevent work.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.LicenseExpireActions.PreventUpgrade">
+      <summary>
+            Prevent upgrade.
+            </summary>
+    </member>
+    <member name="T:StockSharp.Licensing.LicenseHelper">
+      <summary>
+            Extension class for licenses.
+            </summary>
+    </member>
+    <member name="E:StockSharp.Licensing.LicenseHelper.LicenseChanged">
+      <summary>
+        <see cref="P:StockSharp.Licensing.LicenseHelper.Licenses" /> change event.
+            </summary>
+    </member>
+    <member name="E:StockSharp.Licensing.LicenseHelper.LicenseError">
+      <summary>
+            License verification error event.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.LicenseHelper.Licenses">
+      <summary>
+            Download licenses.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.LicenseHelper.RenewOffset">
+      <summary>
+            Date offset from the expiry date of the current license, when it can be renewed. The default is 2 days.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.CanRenew(StockSharp.Licensing.License)">
+      <summary>
+            Check the possibility of license renewal (until the end of time, the license remains less <see cref="F:StockSharp.Licensing.LicenseHelper.RenewOffset" />).
+            </summary>
+      <param name="license">License.</param>
+      <returns>
+        <see langword="true" />, if the license can be renewed, otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.GetEstimatedTime(StockSharp.Licensing.License)">
+      <summary>
+            Get the remaining time of the license.
+            </summary>
+      <param name="license">License.</param>
+      <returns>Remaining time of the license. If the license is expired, the value <see cref="F:System.TimeSpan.Zero" /> will be returned.</returns>
+    </member>
+    <member name="F:StockSharp.Licensing.LicenseHelper.SpecialSplitter">
+      <summary>
+            The special combination of '!!!' for the separation of account numbers.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.ValidateLicense(System.String,System.String,System.Reflection.Assembly)">
+      <summary>
+            Check the license supported the feature.
+            </summary>
+      <param name="featureName">Feature.</param>
+      <param name="portfolioName">The account number that will be used for verification.</param>
+      <param name="component">Component.</param>
+      <returns>Error info, if the license does not support the feature.</returns>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.Save(StockSharp.Licensing.License)">
+      <summary>
+            Save the license on local disk.
+            </summary>
+      <param name="license">License.</param>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.Remove(StockSharp.Licensing.License)">
+      <summary>
+            Delete license.
+            </summary>
+      <param name="license">License.</param>
+    </member>
+    <member name="M:StockSharp.Licensing.LicenseHelper.IsTrial(StockSharp.Licensing.License)">
+      <summary>
+            License it trial.
+            </summary>
+      <param name="license">License.</param>
+      <returns>
+        <see langword="true" />, if the license if trial, otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="T:StockSharp.Licensing.Messages.LicenseInfoMessage">
+      <summary>
+            License message.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseInfoMessage.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Licensing.Messages.LicenseInfoMessage" />.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseInfoMessage.OriginalTransactionId">
+      <inheritdoc />
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseInfoMessage.License">
+      <summary>
+            License body.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseInfoMessage.Clone">
+      <summary>
+            Create a copy of <see cref="T:StockSharp.Licensing.Messages.LicenseInfoMessage" />.
+            </summary>
+      <returns>Copy.</returns>
+    </member>
+    <member name="T:StockSharp.Licensing.Messages.LicenseLookupMessage">
+      <summary>
+            License lookup message.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseLookupMessage.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Licensing.Messages.LicenseLookupMessage" />.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseLookupMessage.Clone">
+      <summary>
+            Create a copy of <see cref="T:StockSharp.Licensing.Messages.LicenseLookupMessage" />.
+            </summary>
+      <returns>Copy.</returns>
+    </member>
+    <member name="T:StockSharp.Licensing.Messages.LicenseRequestMessage">
+      <summary>
+            License request (create, renew, delete) message.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseRequestMessage.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Licensing.Messages.LicenseRequestMessage" />.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseRequestMessage.TransactionId">
+      <inheritdoc />
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseRequestMessage.BrokerId">
+      <summary>
+            Broker identifier.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseRequestMessage.Account">
+      <summary>
+            Account.
+            </summary>
+    </member>
+    <member name="P:StockSharp.Licensing.Messages.LicenseRequestMessage.LicenseId">
+      <summary>
+            License identifier.
+            </summary>
+    </member>
+    <member name="M:StockSharp.Licensing.Messages.LicenseRequestMessage.Clone">
+      <summary>
+            Create a copy of <see cref="T:StockSharp.Licensing.Messages.LicenseRequestMessage" />.
+            </summary>
+      <returns>Copy.</returns>
+    </member>
+    <member name="T:StockSharp.Licensing.Messages.LicensingMessageTypes">
+      <summary>
+            Extended <see cref="T:StockSharp.Messages.MessageTypes" />.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.Messages.LicensingMessageTypes.Lookup">
+      <summary>
+        <see cref="T:StockSharp.Licensing.Messages.LicenseLookupMessage" />.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.Messages.LicensingMessageTypes.Request">
+      <summary>
+        <see cref="T:StockSharp.Licensing.Messages.LicenseRequestMessage" />.
+            </summary>
+    </member>
+    <member name="F:StockSharp.Licensing.Messages.LicensingMessageTypes.Info">
+      <summary>
+        <see cref="T:StockSharp.Licensing.Messages.LicenseInfoMessage" />.
+            </summary>
+    </member>
+  </members>
+</doc>

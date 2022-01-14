@@ -1,0 +1,46 @@
+﻿
+namespace TechnicalAnalysisTools.Shared.Enumerations
+{
+    public enum ConditionOperations
+    {
+        And,
+        AndForNumbers,
+        AndForTimeFrames,
+        Or,
+        OrForNumbers,
+        OrForTimeFrames,
+        TrueCount,
+        TrueCountForNumbers,
+        TrueCountForTimeFrames,
+        FalseCount,
+        FalseCountForNumbers,
+        FalseCountForTimeFrames,
+        Not,
+        Divergence,
+        Decrease,
+        Increase,
+        Equal,
+        EqualFields,
+        Touch,
+        TouchField,
+        GreaterThan,
+        GreaterFieldThanAnotherField,
+        SmallerThan,
+        SmallerFieldThanAnotherField,
+        CrossDown,
+        CrossDownAnotherField,
+        CrossUp,
+        CrossUpAnotherField,
+        Pump,
+        Dump,
+        IsCandleType,
+        IsFirstTimeFrameCandle,
+        IsLastTimeFrameCandle,
+        IsStockExchangeOpen,
+        IsCandleMinuteBetween,
+        IsCandleHourBetween,
+        IsCandleDayOfMonthBetween,
+        IsCandleDayOfWeek,
+        Script
+    }
+}

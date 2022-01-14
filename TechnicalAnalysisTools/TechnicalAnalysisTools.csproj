@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{938EEE33-60A0-420E-A7FE-CD31F90185ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TechnicalAnalysisTools</RootNamespace>
+    <AssemblyName>TechnicalAnalysisTools</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\TechnicalAnalysisTools.Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\TechnicalAnalysisTools.Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Binance.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADClientSDK, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ADClientSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="API, Version=3.5.14.53, Culture=neutral, PublicKeyToken=b6b45f27e2749b17, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\API.dll</HintPath>
+    </Reference>
+    <Reference Include="AutomaticUpdaterWPF, Version=2.6.18.4, Culture=neutral, PublicKeyToken=41f970429d9c8a0e, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AutomaticUpdaterWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Glacier, Version=3.1.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AWSSDK.Glacier.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.1.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleNotificationService, Version=3.1.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AWSSDK.SimpleNotificationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SQS, Version=3.1.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\AWSSDK.SQS.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseStructures, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\BaseStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="Binance.Net, Version=6.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Binance.Net.6.13.3\lib\netstandard2.0\Binance.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Blackwood.Framework, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Blackwood.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="CBWMessages, Version=1.0.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\CBWMessages.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientStructures, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ClientStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="ClrPatch, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ClrPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="CommLib, Version=1.0.0.44, Culture=neutral, PublicKeyToken=b6b45f27e2749b17, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\CommLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CryptoExchange.Net, Version=3.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptoExchange.Net.3.9.0\lib\netstandard2.0\CryptoExchange.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DataCollections, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DataCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="ddfplus, Version=1.0.2.61, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ddfplus.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Data.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Mvvm.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Pdf.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Drawing, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Pdf.v18.1.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Printing.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Controls.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Core.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Docking.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.DocumentViewer.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v18.1.Extensions, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Grid.v18.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Layout.v18.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.LayoutControl.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.NavBar.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.NavBar.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PdfViewer.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.PdfViewer.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Printing.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.PropertyGrid.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Ribbon.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.DXStyle.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.DXStyle.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.HybridApp.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.HybridApp.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.LightGray.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.LightGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.MetropolisDark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.MetropolisLight.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2007Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2007Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2007Silver.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2010Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2010Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2010Silver.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2013.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013DarkGray.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2013DarkGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2013LightGray.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Black.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016Black.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016BlackSE.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016BlackSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Colorful.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016Colorful.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016ColorfulSE.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016ColorfulSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016DarkGraySE.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016DarkGraySE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016White.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016WhiteSE.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Office2016WhiteSE.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Seven.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.Seven.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.TouchlineDark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2010.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.VS2010.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Blue.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.VS2017Blue.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Dark.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.VS2017Dark.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Light.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DevExpress.Xpf.Themes.VS2017Light.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Disk.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Disk.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Disk.SDK.Provider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Disk.SDK.Provider.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetDBF, Version=3.0.1.27028, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\DotNetDBF.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Backup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Backup.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Collections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.ComponentModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Data.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Data.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Net.SocketIO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Net.SocketIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Reflection.Aspects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Reflection.Aspects.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Roslyn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Roslyn.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Serialization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Serialization.FieldFactories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Serialization.FieldFactories.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Transactions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.UnitTesting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.UnitTesting.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Xaml, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Xaml.Charting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b10e79ed0227b515, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Xaml.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Ecng.Xaml.DevExp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Ecng.Xaml.DevExp.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FeedOSAPI_vc12, Version=2.6.2.0, Culture=neutral, PublicKeyToken=b52ba8f4345b12b8, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\FeedOSAPI_vc12.dll</HintPath>
+    </Reference>
+    <Reference Include="FeedOS_Managed_vc12, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e3d34335369e419e, processorArchitecture=AMD64">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\FeedOS_Managed_vc12.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.WPF, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\HtmlRenderer.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="INIFileParser, Version=1.7.1.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.ADLite.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.CQG, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.CQG.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.P2ClientGateMTA32, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.P2ClientGateMTA32.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.P2ClientGateMTA64, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.P2ClientGateMTA64.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SmartCOM3_32, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.SmartCOM3_32.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SmartCOM3_64, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.SmartCOM3_64.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SmartCOM4_32, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.SmartCOM4_32.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SmartCOM4_64, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.SmartCOM4_64.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.StClientLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.StClientLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SterlingLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Interop.SterlingLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="JWTFW, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\JWTFW.dll</HintPath>
+    </Reference>
+    <Reference Include="LmaxClientLibrary, Version=1.9.0.2, Culture=neutral, PublicKeyToken=f45712b013135aca, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\LmaxClientLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq, Version=1.0.16127.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="NetProtocol, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\NetProtocol.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Northwoods.GoWPF, Version=2.1.1.4, Culture=neutral, PublicKeyToken=616e2dc80068a33d, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Northwoods.GoWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoSharp.Core, Version=1.0.0.1, Culture=neutral, PublicKeyToken=b6b45f27e2749b17, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\ProtoSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Pubnub, Version=4.0.24.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Pubnub.dll</HintPath>
+    </Reference>
+    <Reference Include="rapiplus, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\rapiplus.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp, Version=0.64.3890.29348, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketUtils, Version=4.0.1900.1900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\SocketUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Alerts, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Alerts.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.AlfaDirect, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.AlfaDirect.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Algo, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Algo.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Algo.History, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Algo.History.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Algo.Strategies, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Algo.Strategies.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.AlphaVantage, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.AlphaVantage.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BarChart, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BarChart.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bibox, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bibox.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Binance, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Binance.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bitbank, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bitbank.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bitexbook, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bitexbook.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bitfinex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bitfinex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bithumb, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bithumb.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BitMax, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BitMax.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bitmex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bitmex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BitStamp, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BitStamp.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Bittrex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Bittrex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BitZ, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BitZ.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Blackwood, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Blackwood.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Btce, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Btce.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BusinessEntities, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BW, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.BW.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Cex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Cex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Coinbase, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Coinbase.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.CoinBene, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.CoinBene.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.CoinCap, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.CoinCap.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Coincheck, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Coincheck.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.CoinExchange, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.CoinExchange.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Coinigy, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Coinigy.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Community, Version=4.4.16.0, Culture=neutral, PublicKeyToken=a245fe39d1a4aa84, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Community.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Configuration, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Cqg.Com, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Cqg.Com.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Cqg.Continuum, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Cqg.Continuum.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Cryptopia, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Cryptopia.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Deribit, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Deribit.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Digifinex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Digifinex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.ETrade, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.ETrade.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Exmo, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Exmo.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Fix, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Fix.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Fxcm, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Fxcm.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Gdax, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Gdax.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.HitBtc, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.HitBtc.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Huobi, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Huobi.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Idax, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Idax.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.IEX, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.IEX.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.InteractiveBrokers, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.InteractiveBrokers.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.IQFeed, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.IQFeed.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.ITCH, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.ITCH.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Kraken, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Kraken.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Kucoin, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Kucoin.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.LBank, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.LBank.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Licensing, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Liqui, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Liqui.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.LiveCoin, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.LiveCoin.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.LMAX, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.LMAX.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Localization, Version=4.4.16.0, Culture=neutral, PublicKeyToken=a245fe39d1a4aa84, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Logging, Version=4.4.16.0, Culture=neutral, PublicKeyToken=a245fe39d1a4aa84, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.MatLab, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.MatLab.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Messages, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Micex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Micex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Oanda, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Oanda.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Okcoin, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Okcoin.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Okex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Okex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.OpenECry, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.OpenECry.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Plaza, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Plaza.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Poloniex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Poloniex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.QuantHouse, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.QuantHouse.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Quik, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Quik.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Quoinex, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Quoinex.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Rithmic, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Rithmic.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Rss, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Rss.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.SmartCom, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.SmartCom.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.SpbEx, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.SpbEx.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Sterling, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Sterling.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.TradeOgre, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.TradeOgre.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Transaq, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Transaq.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Twime, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Twime.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Xaml, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Xaml.Charting, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Xaml.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Xaml.Diagram, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Xaml.Diagram.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Yobit, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Yobit.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Zaif, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.Zaif.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.ZB, Version=4.4.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\StockSharp.ZB.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ClientEngine, Version=0.10.0.0, Culture=neutral, PublicKeyToken=ee9af13f57f00acc, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.ClientEngine.Core.0.10.0\lib\net45\SuperSocket.ClientEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.Engine.1.6.6.1\lib\net45\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Specialized.4.3.0\lib\net46\System.Collections.Specialized.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.79.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.FtpClient, Version=1.0.5281.14405, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.Net.FtpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.NameResolution.4.3.0\lib\net46\System.Net.NameResolution.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Security.4.3.0\lib\net46\System.Net.Security.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Types.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocket4Net, Version=0.15.2.11, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocket4Net.0.15.2\lib\net45\WebSocket4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="XigniteCodeGen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\XigniteCodeGen.dll</HintPath>
+    </Reference>
+    <Reference Include="xNet, Version=3.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\xNet.dll</HintPath>
+    </Reference>
+    <Reference Include="zlibnet, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StockSharp.4.4.16\lib\net45\zlibnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Auxiliaries\DdosLimiterAuxiliary.cs" />
+    <Compile Include="Auxiliaries\NetworkEncryptionAuxiliary.cs" />
+    <Compile Include="Auxiliaries\ServerLogAuxiliary.cs" />
+    <Compile Include="Auxiliaries\ServerLogFactoryAuxiliary.cs" />
+    <Compile Include="Auxiliaries\TradeSubOrderAuxiliary.cs" />
+    <Compile Include="Auxiliaries\TradeSubOrderModeAuxiliaryBase.cs" />
+    <Compile Include="Auxiliaries\TradeSubOrderFixedModeAuxiliary.cs" />
+    <Compile Include="Auxiliaries\TradeSubOrderTrailingOrderModeAuxiliary.cs" />
+    <Compile Include="Auxiliaries\TradeWalletAuxiliary.cs" />
+    <Compile Include="Auxiliaries\TradeAllocatedBalanceAuxiliary.cs" />
+    <Compile Include="DataAdapters\CryptoHistoricalDataAdapter.cs" />
+    <Compile Include="DataModels\ProcessInfoDataModel.cs" />
+    <Compile Include="DataModels\SessionEstablishmentDataModel.cs" />
+    <Compile Include="DataObjects\LogDataObject.cs" />
+    <Compile Include="DataObjects\RequestDataObject.cs" />
+    <Compile Include="DataObjects\UiClientSessionDataObject.cs" />
+    <Compile Include="Delegates\BinanceConnectionStatusHandlerDelegate.cs" />
+    <Compile Include="Delegates\BinanceKlineUpdatesReceivedHandlerDelegate.cs" />
+    <Compile Include="Delegates\DisablingClientRequestedHandlerDelegate.cs" />
+    <Compile Include="Delegates\LogReceivedHandlerDelegate.cs" />
+    <Compile Include="Delegates\MarketDataChangedHandlerDelegate.cs" />
+    <Compile Include="Delegates\MenuItemsStatusChangedHandlerDelegate.cs" />
+    <Compile Include="Delegates\ProgressValueChangedHandlerDelegate.cs" />
+    <Compile Include="Delegates\ServerRequestHandlerDelegate.cs" />
+    <Compile Include="Delegates\ServerSessionHandlerDelegate.cs" />
+    <Compile Include="Delegates\ServiceWorkingNotifiedHandlerDelegate.cs" />
+    <Compile Include="Delegates\StatusBarInformationReceivedHandlerDelegate.cs" />
+    <Compile Include="Delegates\StrategyTestStatusChangedHandlerDelegate.cs" />
+    <Compile Include="Enumerations\DatabaseSavingDataMode.cs" />
+    <Compile Include="Backends\MainBackend.cs" />
+    <Compile Include="Enumerations\FixedModeActiveRangeTypes.cs" />
+    <Compile Include="Enumerations\TradeSubOrderModeTriggerdTypes.cs" />
+    <Compile Include="Enumerations\TradeSubStatusTypes.cs" />
+    <Compile Include="Enumerations\TrailingDirectionTypes.cs" />
+    <Compile Include="Forms\EstablishmentWindow.xaml.cs">
+      <DependentUpon>EstablishmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServerConfigurationWindow.xaml.cs">
+      <DependentUpon>ServerConfigurationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ServerAddressHelper.cs" />
+    <Compile Include="Helpers\ServerConstantHelper.cs" />
+    <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Helpers\SessionEstablishmentHelper.cs" />
+    <Compile Include="Helpers\SettingsStorageHelper.cs" />
+    <Compile Include="Helpers\SymbolTypeHelper.cs" />
+    <Compile Include="Helpers\TimeFrameCandleHelper.cs" />
+    <Compile Include="IndicatorCallers\StochasticRsiIndicatorCaller.cs" />
+    <Compile Include="Indicators\IchimokuSenkouA26LineIndicator.cs" />
+    <Compile Include="Indicators\IchimokuSenkouB26LineIndicator.cs" />
+    <Compile Include="Indicators\StochasticRsiKIndicator.cs" />
+    <Compile Include="Indicators\StochasticRsiIndicator.cs" />
+    <Compile Include="Services\BinanceService.cs" />
+    <Compile Include="Services\CryptoServerService.cs" />
+    <Compile Include="Services\DatabaseSequenceCandleReaderService.cs" />
+    <Compile Include="Services\LiveHistoryService.cs" />
+    <Compile Include="Services\MainFormVisualizerService.cs" />
+    <Compile Include="Services\MarketDataProviderService.cs" />
+    <Compile Include="Services\NetworkServerService.cs" />
+    <Compile Include="Services\ObjectDataReaderService.cs" />
+    <Compile Include="Services\StrategyTestService.cs" />
+    <Compile Include="Services\TechnicalAnalysisService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerations\DivergenceTypes.cs" />
+    <Compile Include="Enumerations\ExcelFields.cs" />
+    <Compile Include="Helpers\HistoricalDataHelper.cs" />
+    <Compile Include="IndicatorCallers\BollingerBandsIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\EmaIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingMacdHistogramDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingMacdSignalDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingMacdValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingRsiDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingStochasticDValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenAscendingStochasticKValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingMacdHistogramDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingMacdSignalDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingMacdValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingRsiDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingStochasticDValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\HiddenDescendingStochasticKValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\IchimokuIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\IIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\IndicatorCallerBase.cs" />
+    <Compile Include="IndicatorCallers\MacdIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\MfiIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingMacdHistogramDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingMacdSignalDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingMacdValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingRsiDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingStochasticDValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularAscendingStochasticKValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingMacdHistogramDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingMacdSignalDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingMacdValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingRsiDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingStochasticDValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RegularDescendingStochasticKValueDivergenceIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\RsiIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\SmaIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\StochasticIndicatorCaller.cs" />
+    <Compile Include="IndicatorCallers\WilliamsRIndicatorCaller.cs" />
+    <Compile Include="Indicators\BollingerBandIndicator.cs" />
+    <Compile Include="Indicators\BollingerBandsIndicator.cs" />
+    <Compile Include="Indicators\ComplexIndicatorBase.cs" />
+    <Compile Include="Indicators\DivergenceIndicatorBase.cs" />
+    <Compile Include="Indicators\EmaIndicator.cs" />
+    <Compile Include="Indicators\HiddenAscendingDivergenceIndicator.cs" />
+    <Compile Include="Indicators\HiddenDescendingDivergenceIndicator.cs" />
+    <Compile Include="Indicators\HighestIndicator.cs" />
+    <Compile Include="Indicators\IchimokuChinkouLineIndicator.cs" />
+    <Compile Include="Indicators\IchimokuIndicator.cs" />
+    <Compile Include="Indicators\IchimokuLineIndicator.cs" />
+    <Compile Include="Indicators\IchimokuSenkouALineIndicator.cs" />
+    <Compile Include="Indicators\IchimokuSenkouBLineIndicator.cs" />
+    <Compile Include="Indicators\IndicatorBase.cs" />
+    <Compile Include="Indicators\LengthIndicatorBase.cs" />
+    <Compile Include="Indicators\LowestIndicator.cs" />
+    <Compile Include="Indicators\MacdIndicator.cs" />
+    <Compile Include="Indicators\MfiIndicator.cs" />
+    <Compile Include="Indicators\MovingAverageConvergenceDivergenceIndicator.cs" />
+    <Compile Include="Indicators\RegularAscendingDivergenceIndicator.cs" />
+    <Compile Include="Indicators\RegularDescendingDivergenceIndicator.cs" />
+    <Compile Include="Indicators\RsiIndicator.cs" />
+    <Compile Include="Indicators\SmaIndicator.cs" />
+    <Compile Include="Indicators\SmoothedMovingAverageIndicator.cs" />
+    <Compile Include="Indicators\StandardDeviationIndicator.cs" />
+    <Compile Include="Indicators\StochasticIndicator.cs" />
+    <Compile Include="Indicators\StochasticKIndicator.cs" />
+    <Compile Include="Indicators\WilliamsRIndicator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Binance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Binance.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Binance.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechnicalAnalysisTools.Shared\TechnicalAnalysisTools.Shared.csproj">
+      <Project>{e6c6dce1-e3d5-4056-a829-fb7c7e045665}</Project>
+      <Name>TechnicalAnalysisTools.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Forms\EstablishmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ServerConfigurationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

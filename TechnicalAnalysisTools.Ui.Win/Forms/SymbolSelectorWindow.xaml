@@ -1,0 +1,34 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Ui.Win.Forms.SymbolSelectorWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Icon="../Images/Binance.png"
+        WindowStartupLocation="CenterScreen"
+        Title="Symbol Selector" Height="400" Width="300" WindowStyle="ToolWindow" ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="ListBoxMain" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <CheckBox Content="{Binding Symbol}" IsChecked="{Binding Checked}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="ButtonOk" Grid.Row="1" Grid.Column="0" Content="Ok" Click="ButtonOk_Click"/>
+        <Button Name="ButtonCancel" Grid.Row="1" Grid.Column="1" Content="Cancel" Click="ButtonCancel_Click"/>
+        <Button Name="ButtonSelectAll" Grid.Row="1" Grid.Column="3" Content="Select All" Click="ButtonSelectAll_Click"/>
+    </Grid>
+</Window>

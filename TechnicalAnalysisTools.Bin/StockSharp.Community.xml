@@ -1,0 +1,1538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockSharp.Community</name>
+    </assembly>
+    <members>
+        <member name="T:StockSharp.Community.AuthenticationClient">
+            <summary>
+            The client for access to the StockSharp authentication service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.AuthenticationClient"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.AuthenticationClient"/>.
+            </summary>
+            <param name="address">Service address.</param>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.Instance">
+            <summary>
+            The common authorization client for the whole application.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.Credentials">
+            <summary>
+            Information about the login and password for access to the StockSharp.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.Product">
+            <summary>
+            Product.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.Version">
+            <summary>
+            Product.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.IsLoggedIn">
+            <summary>
+            Has the client successfully authenticated.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.SessionId">
+            <summary>
+            Session ID.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.NullableSessionId">
+            <summary>
+            To get the <see cref="P:StockSharp.Community.AuthenticationClient.SessionId"/> if the user was authorized.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.AuthenticationClient.UserId">
+            <summary>
+            The user identifier for <see cref="P:StockSharp.Community.AuthenticationClient.SessionId"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.Login">
+            <summary>
+            To log in.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.Login(System.Nullable{StockSharp.Community.Products},System.String,System.Security.SecureString)">
+            <summary>
+            To log in.
+            </summary>
+            <param name="product">Product.</param>
+            <param name="login">Login.</param>
+            <param name="password">Password.</param>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.Logout">
+            <summary>
+            Logout.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.GetId(System.Guid)">
+            <summary>
+            Get a user id.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>User id.</returns>
+        </member>
+        <member name="M:StockSharp.Community.AuthenticationClient.DisposeManaged">
+            <summary>
+            Release resources.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.BaseCommunityClient`1">
+            <summary>
+            The base client for access to the StockSharp services.
+            </summary>
+            <typeparam name="TService">WCF service type.</typeparam>
+        </member>
+        <member name="M:StockSharp.Community.BaseCommunityClient`1.#ctor(System.Uri,System.String,System.Boolean)">
+            <summary>
+            Initialize <see cref="T:StockSharp.Community.BaseCommunityClient`1"/>.
+            </summary>
+            <param name="address">Server address.</param>
+            <param name="endpointName">The access point name in the configuration file.</param>
+            <param name="hasCallbacks">Whether the <typeparamref name="TService" /> has events.</param>
+        </member>
+        <member name="P:StockSharp.Community.BaseCommunityClient`1.SessionId">
+            <summary>
+            The session identifier received from <see cref="M:StockSharp.Community.IAuthenticationService.Login(System.String,System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.BaseCommunityClient`1.NullableSessionId">
+            <summary>
+            To get the <see cref="P:StockSharp.Community.BaseCommunityClient`1.SessionId"/> if the user was authorized.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.BaseCommunityClient`1.IsEnglish">
+            <summary>
+            Is current language is English.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.BaseServiceClient`1">
+            <summary>
+            The base client for access to the WCF services.
+            </summary>
+            <typeparam name="TService">WCF service type.</typeparam>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.#ctor(System.Uri,System.String,System.Boolean)">
+            <summary>
+            Initialize <see cref="T:StockSharp.Community.BaseCommunityClient`1"/>.
+            </summary>
+            <param name="address">Server address.</param>
+            <param name="endpointName">The access point name in the configuration file.</param>
+            <param name="hasCallbacks">Whether the <typeparamref name="TService" /> has events.</param>
+        </member>
+        <member name="P:StockSharp.Community.BaseServiceClient`1.Address">
+            <summary>
+            Server address.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.BaseServiceClient`1.IsConnected">
+            <summary>
+            Whether the connection has been established.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.CreateChannel">
+            <summary>
+            Create WCF channel.
+            </summary>
+            <returns>WCF channel.</returns>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.Connect">
+            <summary>
+            To connect. The connection is established automatically when the method <see cref="M:StockSharp.Community.BaseServiceClient`1.Invoke(System.Action{`0})"/> or <see cref="M:StockSharp.Community.BaseServiceClient`1.Invoke``1(System.Func{`0,``0})"/> is called.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.OnConnect">
+            <summary>
+            Connect.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.Invoke``1(System.Func{`0,``0})">
+            <summary>
+            To call the service <typeparamref name="TService" /> method.
+            </summary>
+            <typeparam name="TResult">The result type returning the service method.</typeparam>
+            <param name="handler">The handler in which the method is called.</param>
+            <returns>The result returning the service method.</returns>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.Invoke(System.Action{`0})">
+            <summary>
+            To call the service <typeparamref name="TService" /> method.
+            </summary>
+            <param name="handler">The handler in which the method is called.</param>
+        </member>
+        <member name="M:StockSharp.Community.BaseServiceClient`1.DisposeManaged">
+            <summary>
+            Release resources.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.CommunityNews">
+            <summary>
+            News.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.CommunityNews.#ctor">
+            <summary>
+            News <see cref="T:StockSharp.Community.CommunityNews"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.Id">
+            <summary>
+            News ID.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.Frequency">
+            <summary>
+            The news update frequency (in hours).
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.EndDate">
+            <summary>
+            News ends.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.EnglishTitle">
+            <summary>
+            Headline in English.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.EnglishBody">
+            <summary>
+            Text in English.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.RussianTitle">
+            <summary>
+            Headline in Russian.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.CommunityNews.RussianBody">
+            <summary>
+            Text in Russian.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.CommunityAuthorization">
+            <summary>
+            The module of the connection access check based on the <see cref="T:StockSharp.Community.IAuthenticationService"/> authorization.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.CommunityAuthorization.#ctor(StockSharp.Community.Products)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.CommunityAuthorization"/>.
+            </summary>
+            <param name="product">Product.</param>
+        </member>
+        <member name="M:StockSharp.Community.CommunityAuthorization.ValidateCredentials(System.String,System.Security.SecureString,System.Net.IPAddress)">
+            <summary>
+            To check the username and password on correctness.
+            </summary>
+            <param name="login">Login.</param>
+            <param name="password">Password.</param>
+            <param name="clientAddress">Remote network address.</param>
+            <returns>Session ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.CommunityAuthorization.SaveUser(System.String,System.Security.SecureString,System.Collections.Generic.IEnumerable{System.Net.IPAddress})">
+            <summary>
+            Save user.
+            </summary>
+            <param name="login">Login.</param>
+            <param name="password">Password.</param>
+            <param name="possibleAddresses">Possible addresses.</param>
+        </member>
+        <member name="M:StockSharp.Community.CommunityAuthorization.DeleteUser(System.String)">
+            <summary>
+            Delete user by login.
+            </summary>
+            <param name="login">Login.</param>
+            <returns>Returns <see langword="true"/>, if user was deleted, otherwise return <see langword="false"/>.</returns>
+        </member>
+        <member name="P:StockSharp.Community.CommunityAuthorization.AllUsers">
+            <summary>
+            Get all available users.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.FileClient">
+            <summary>
+            The client for access to the service of work with files and documents.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.FileClient"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.FileClient"/>.
+            </summary>
+            <param name="address">Service address.</param>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.GetFile(System.Int64,System.Action{System.Int32},System.Func{System.Boolean})">
+            <summary>
+            To get the file data.
+            </summary>
+            <param name="id">File ID.</param>
+            <param name="progress">Progress callback.</param>
+            <param name="cancel">Cancel callback.</param>
+            <returns>The file data.</returns>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.GetFileInfo(System.Int64)">
+            <summary>
+            To get the file data.
+            </summary>
+            <param name="id">File ID.</param>
+            <returns>The file data.</returns>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.Download(StockSharp.Community.FileData,System.Action{System.Int32},System.Func{System.Boolean})">
+            <summary>
+            Download file.
+            </summary>
+            <param name="data">The file data.</param>
+            <param name="progress">Progress callback.</param>
+            <param name="cancel">Cancel callback.</param>
+            <returns>If the operation was cancelled by <paramref name="cancel"/>, <see langword="false"/> will return.</returns>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.Update(StockSharp.Community.FileData,System.Action{System.Int32},System.Func{System.Boolean})">
+            <summary>
+            To upload the existing file.
+            </summary>
+            <param name="data">File data.</param>
+            <param name="progress">Progress callback.</param>
+            <param name="cancel">Cancel callback.</param>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.Upload(System.String,System.Byte[],System.Boolean,System.Action{System.Int32},System.Func{System.Boolean})">
+            <summary>
+            To upload the file to the site.
+            </summary>
+            <param name="fileName">File name.</param>
+            <param name="body">File body.</param>
+            <param name="isPublic">Is the file available for public.</param>
+            <param name="progress">Progress callback.</param>
+            <param name="cancel">Cancel callback.</param>
+            <returns>File data. If the operation was cancelled by <paramref name="cancel"/>, <see langword="null"/> will return.</returns>
+        </member>
+        <member name="M:StockSharp.Community.FileClient.GetUploadLimit">
+            <summary>
+            To get a upload size limit.
+            </summary>
+            <returns>Upload size limit.</returns>
+        </member>
+        <member name="T:StockSharp.Community.IAuthenticationService">
+            <summary>
+            The interface describing the authorization service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.Login(System.String,System.String)">
+            <summary>
+            To log in.
+            </summary>
+            <param name="email">Email.</param>
+            <param name="password">Password.</param>
+            <returns>Session ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.Login2(StockSharp.Community.Products,System.String,System.String)">
+            <summary>
+            To log in.
+            </summary>
+            <param name="product">Product.</param>
+            <param name="email">Email.</param>
+            <param name="password">Password.</param>
+            <returns>Session ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.Login3(StockSharp.Community.Products,System.String,System.String,System.String)">
+            <summary>
+            To log in.
+            </summary>
+            <param name="product">Product.</param>
+            <param name="version">Version.</param>
+            <param name="email">Email.</param>
+            <param name="password">Password.</param>
+            <returns>Session ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.Ping(System.Guid)">
+            <summary>
+            Track the session is alive.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.Logout(System.Guid)">
+            <summary>
+            Logout.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+        </member>
+        <member name="M:StockSharp.Community.IAuthenticationService.GetId(System.Guid)">
+            <summary>
+            Get a user id.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>User id.</returns>
+        </member>
+        <member name="T:StockSharp.Community.IFileService">
+            <summary>
+            The interface describing the service to work with files and documents.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.GetFileInfo(System.Guid,System.Int64)">
+            <summary>
+            To get the file data.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="id">File ID.</param>
+            <returns>The file data.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.BeginDownload(System.Guid,System.Int64)">
+            <summary>
+            To start downloading the file.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="id">File ID.</param>
+            <returns>Operation ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.ProcessDownload(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Download part of file.
+            </summary>
+            <param name="operationId">Operation ID, received from <see cref="M:StockSharp.Community.IFileService.BeginDownload(System.Guid,System.Int64)"/>.</param>
+            <param name="startIndex">The zero-based byte offset in file.</param>
+            <param name="count">The maximum number of bytes to be read.</param>
+            <returns>The part of file.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.FinishDownload(System.Guid,System.Boolean)">
+            <summary>
+            To finish downloading the file.
+            </summary>
+            <param name="operationId">Operation ID, received from <see cref="M:StockSharp.Community.IFileService.BeginDownload(System.Guid,System.Int64)"/>.</param>
+            <param name="isCancel">Cancel the operation.</param>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.BeginUpload(System.Guid,System.String,System.Boolean)">
+            <summary>
+            To start uploading the file to the site.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="fileName">File name.</param>
+            <param name="isPublic">Is the file available for public.</param>
+            <returns>Operation ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.BeginUploadExisting(System.Guid,System.Int64)">
+            <summary>
+            To start uploading the file to the site.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="id">File ID.</param>
+            <returns>Operation ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.ProcessUpload(System.Guid,System.Byte[])">
+            <summary>
+            Upload part of file.
+            </summary>
+            <param name="operationId">Operation ID, received from <see cref="M:StockSharp.Community.IFileService.BeginUpload(System.Guid,System.String,System.Boolean)"/> or <see cref="M:StockSharp.Community.IFileService.BeginUploadExisting(System.Guid,System.Int64)"/>.</param>
+            <param name="bodyPart">The part of file.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.FinishUpload(System.Guid,System.Boolean)">
+            <summary>
+            To finish uploading the file.
+            </summary>
+            <param name="operationId">Operation ID, received from <see cref="M:StockSharp.Community.IFileService.BeginUpload(System.Guid,System.String,System.Boolean)"/> or <see cref="M:StockSharp.Community.IFileService.BeginUploadExisting(System.Guid,System.Int64)"/>.</param>
+            <param name="isCancel">Cancel the operation.</param>
+            <returns>File ID.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.Delete(System.Guid,System.Int64)">
+            <summary>
+            To delete the file.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="id">File ID.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IFileService.GetUploadLimit(System.Guid)">
+            <summary>
+            To get a upload size limit.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>Upload size limit.</returns>
+        </member>
+        <member name="T:StockSharp.Community.INotificationService">
+            <summary>
+            The interface to the notification sending service to the phone or e-mail.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.GetSmsCount(System.Guid)">
+            <summary>
+            To get the available number of SMS messages.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>The available number of SMS-messages.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.GetEmailCount(System.Guid)">
+            <summary>
+            To get the available number of email messages.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>The available number of email messages.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.SendSms(System.Guid,System.String)">
+            <summary>
+            To send a SMS message.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="message">Message body.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.SendEmail(System.Guid,System.String,System.String)">
+            <summary>
+            To send an email message.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="title">The message title.</param>
+            <param name="body">Message body.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.SendMessage(System.Guid,System.String,System.String,System.Int64[],System.Boolean)">
+            <summary>
+            To send a message.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="title">The message title.</param>
+            <param name="body">Message body.</param>
+            <param name="attachments">Attachments.</param>
+            <param name="isEnglish">Message in English.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.GetNews2(System.Guid,System.Boolean,System.Int64)">
+            <summary>
+            To get the latest news.
+            </summary>
+            <param name="sessionId">Session ID. It can be empty if the request is anonymous.</param>
+            <param name="isEnglish">Request news on English.</param>
+            <param name="fromId">The identifier from which you need to receive the news.</param>
+            <returns>Last news.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.HasFeedback(System.Guid,StockSharp.Community.Products)">
+            <summary>
+            Has feedback for specified product.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="product">Product.</param>
+            <returns>Check result.</returns>
+        </member>
+        <member name="M:StockSharp.Community.INotificationService.SendFeedback(System.Guid,StockSharp.Community.Products,System.Int32,System.String)">
+            <summary>
+            Send feedback for specified product.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="product">Product.</param>
+            <param name="rating">Rating.</param>
+            <param name="comment">Comment.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="T:StockSharp.Community.IProfileService">
+            <summary>
+            The interface describing the registration service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.CreateProfile(StockSharp.Community.Profile)">
+            <summary>
+            To start the registration.
+            </summary>
+            <param name="profile">The profile information.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.SendEmail(System.String)">
+            <summary>
+            To send an e-mail message.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.ValidateEmail(System.String,System.String)">
+            <summary>
+            To confirm the e-mail address.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="emailCode">The e-mail confirmation code.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.SendSms(System.String,System.String)">
+            <summary>
+            To send SMS.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="phone">Phone.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.ValidatePhone(System.String,System.String)">
+            <summary>
+            To confirm the phone number.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="smsCode">SMS verification code.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.UpdateProfile(System.Guid,StockSharp.Community.Profile)">
+            <summary>
+            To update profile information.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="profile">The profile information.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.GetProfile(System.Guid)">
+            <summary>
+            To get profile information.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <returns>The profile information.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IProfileService.GetUserProfile(System.Int64)">
+            <summary>
+            To get user information.
+            </summary>
+            <param name="userId">User ID.</param>
+            <returns>The user information.</returns>
+        </member>
+        <member name="T:StockSharp.Community.IStrategyService">
+            <summary>
+            The interface describing the strategy store service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.CreateStrategy(System.Guid,System.Boolean,StockSharp.Community.StrategyData)">
+            <summary>
+            To add the strategy to the store.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="isEnglish">Create strategy in English store.</param>
+            <param name="strategy">The strategy data.</param>
+            <returns>The strategy identifier.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.UpdateStrategy(System.Guid,StockSharp.Community.StrategyData)">
+            <summary>
+            To update the strategy in the store.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="strategy">The strategy data.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.DeleteStrategy(System.Guid,System.Int64)">
+            <summary>
+            To remove the strategy from the store.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="strategyId">The strategy identifier.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetStrategies(System.DateTime,System.Boolean)">
+            <summary>
+            To get all strategies identifiers.
+            </summary>
+            <param name="lastCheckTime">Last time of calling the method.</param>
+            <param name="isEnglish">Request strategies in English store.</param>
+            <returns>Strategies identifiers and revisions.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetDescription(System.Int64[])">
+            <summary>
+            To get the name and description of strategies.
+            </summary>
+            <param name="strategyIds">Strategies identifiers.</param>
+            <returns>Information about strategies.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetSubscriptions(System.Guid,System.DateTime)">
+            <summary>
+            To get active subscriptions signed by <see cref="M:StockSharp.Community.IStrategyService.Subscribe(System.Guid,System.Int64,System.Boolean)"/>.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="lastCheckTime">Last time of calling the method.</param>
+            <returns>Active subscriptions.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.Subscribe(System.Guid,System.Int64,System.Boolean)">
+            <summary>
+            To subscribe for the strategy.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="strategyId">The strategy identifier.</param>
+            <param name="isAutoRenew">Is auto renewable subscription.</param>
+            <returns>The strategy subscription.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.UnSubscribe(System.Guid,System.Int64)">
+            <summary>
+            To unsubscribe from the strategy.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="subscriptionId">The subscription identifier.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetBacktests(System.Guid,System.DateTime,System.DateTime)">
+            <summary>
+            To find backtesting session.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="from">Minimum creation date.</param>
+            <param name="to">Maximum creation date.</param>
+            <returns>Found sessions.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetApproximateAmount(System.Guid,StockSharp.Community.StrategyBacktest)">
+            <summary>
+            To get an approximate of money to spend for the specified backtesting configuration.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="backtest">Backtesting session.</param>
+            <returns>An approximate of money.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.StartBacktest(System.Guid,StockSharp.Community.StrategyBacktest)">
+            <summary>
+            To start backtesing.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="backtest">Backtesting session.</param>
+            <returns>The backtesting session identifier.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.StopBacktest(System.Guid,System.Int64)">
+            <summary>
+            To stop the backtesing.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="backtestId">The backtesting session identifier.</param>
+            <returns>The execution result code.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetCompletedIterationCount(System.Guid,System.Int64)">
+            <summary>
+            To get the count of completed iterations.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="backtestId">The backtesting session identifier.</param>
+            <returns>The count of completed iterations.</returns>
+        </member>
+        <member name="M:StockSharp.Community.IStrategyService.GetBacktestResult(System.Guid,System.Int64)">
+            <summary>
+            To get the identifier of formatted file.
+            </summary>
+            <param name="sessionId">Session ID.</param>
+            <param name="backtestId">The backtesting session identifier.</param>
+            <returns>Identifier of formatted file.</returns>
+        </member>
+        <member name="T:StockSharp.Community.NotificationClient">
+            <summary>
+            The client for access to the StockSharp notification service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.NotificationClient"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.NotificationClient"/>.
+            </summary>
+            <param name="address">Service address.</param>
+        </member>
+        <member name="P:StockSharp.Community.NotificationClient.SmsCount">
+            <summary>
+            The available number of SMS-messages.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.NotificationClient.EmailCount">
+            <summary>
+            The available number of email messages.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.SendSms(System.String)">
+            <summary>
+            To send a SMS message.
+            </summary>
+            <param name="message">Message body.</param>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.SendEmail(System.String,System.String)">
+            <summary>
+            To send an email message.
+            </summary>
+            <param name="title">The message title.</param>
+            <param name="body">Message body.</param>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.SendMessage(System.String,System.String,StockSharp.Community.FileData[])">
+            <summary>
+            To send a message.
+            </summary>
+            <param name="title">The message title.</param>
+            <param name="body">Message body.</param>
+            <param name="attachments">Attachments.</param>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.SendFeedback(StockSharp.Community.Products,System.Int32,System.String)">
+            <summary>
+            Send feedback for specified product.
+            </summary>
+            <param name="product">Product.</param>
+            <param name="rating">Rating.</param>
+            <param name="comment">Comment.</param>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.HasFeedback(StockSharp.Community.Products)">
+            <summary>
+            Has feedback for specified product.
+            </summary>
+            <param name="product">Product.</param>
+            <returns>Check result.</returns>
+        </member>
+        <member name="E:StockSharp.Community.NotificationClient.NewsReceived">
+            <summary>
+            News received.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.SubscribeNews">
+            <summary>
+            To subscribe for news.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.UnSubscribeNews">
+            <summary>
+            To unsubscribe from news.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.NotificationClient.DisposeManaged">
+            <summary>
+            Release resources.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.Profile">
+            <summary>
+            The profile information.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Password">
+            <summary>
+            Password (not filled in when obtaining from the server).
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.DisplayName">
+            <summary>
+            Display name.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Email">
+            <summary>
+            E-mail address.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Phone">
+            <summary>
+            Phone.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Homepage">
+            <summary>
+            Web site.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Skype">
+            <summary>
+            Skype.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.City">
+            <summary>
+            City.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Gender">
+            <summary>
+            Gender.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.IsSubscription">
+            <summary>
+            Is the mail-out enabled.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Language">
+            <summary>
+            Language.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Balance">
+            <summary>
+            Balance.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.Avatar">
+            <summary>
+            Balance.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.Profile.CreationDate">
+            <summary>
+            Date of registration.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.ProfileClient">
+            <summary>
+            The client for access to the registration service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.ProfileClient"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.ProfileClient"/>.
+            </summary>
+            <param name="address">Service address.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.CreateProfile(StockSharp.Community.Profile)">
+            <summary>
+            To start the registration.
+            </summary>
+            <param name="profile">The profile information.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.SendEmail(System.String)">
+            <summary>
+            To send an e-mail message.
+            </summary>
+            <param name="email">E-mail address.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.ValidateEmail(System.String,System.String)">
+            <summary>
+            To confirm the e-mail address.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="emailCode">The e-mail confirmation code.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.SendSms(System.String,System.String)">
+            <summary>
+            To send SMS.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="phone">Phone.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.ValidatePhone(System.String,System.String)">
+            <summary>
+            To confirm the phone number.
+            </summary>
+            <param name="email">E-mail address.</param>
+            <param name="smsCode">SMS verification code.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.UpdateProfile(StockSharp.Community.Profile)">
+            <summary>
+            To update profile information.
+            </summary>
+            <param name="profile">The profile information.</param>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.GetProfile">
+            <summary>
+            To get profile information.
+            </summary>
+            <returns>The profile information.</returns>
+        </member>
+        <member name="M:StockSharp.Community.ProfileClient.GetUserProfile(System.Int64)">
+            <summary>
+            To get user information.
+            </summary>
+            <param name="userId">User ID.</param>
+            <returns>The user information.</returns>
+        </member>
+        <member name="T:StockSharp.Community.ServerCredentials">
+            <summary>
+            The class that contains a login and password to access the services https://stocksharp.com .
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentials.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.ServerCredentials"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.ServerCredentials.Email">
+            <summary>
+            Email.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.ServerCredentials.Password">
+            <summary>
+            Password.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.ServerCredentials.AutoLogon">
+            <summary>
+            Auto login.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentials.Load(Ecng.Serialization.SettingsStorage)">
+            <summary>
+            Load settings.
+            </summary>
+            <param name="storage">Settings storage.</param>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentials.Save(Ecng.Serialization.SettingsStorage)">
+            <summary>
+            Save settings.
+            </summary>
+            <param name="storage">Settings storage.</param>
+        </member>
+        <member name="T:StockSharp.Community.ServerCredentialsExtensions">
+            <summary>
+            Extension class.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.ServerCredentialsExtensions.StockSharpFolder">
+            <summary>
+            The StockSharp folder in <see cref="F:System.Environment.SpecialFolder.MyDocuments"/> location.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentialsExtensions.TryLoadCredentials(StockSharp.Community.ServerCredentials)">
+            <summary>
+            Try load credentials from <see cref="F:StockSharp.Community.ServerCredentialsExtensions.StockSharpFolder"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+            <returns><see langword="true"/> if the specified credentials was loaded successfully, otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentialsExtensions.SaveCredentials(StockSharp.Community.ServerCredentials)">
+            <summary>
+            Save the credentials to <see cref="F:StockSharp.Community.ServerCredentialsExtensions.StockSharpFolder"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+        </member>
+        <member name="M:StockSharp.Community.ServerCredentialsExtensions.SaveCredentials(StockSharp.Community.ServerCredentials,System.Boolean)">
+            <summary>
+            Save the credentials to <see cref="F:StockSharp.Community.ServerCredentialsExtensions.StockSharpFolder"/>.
+            </summary>
+            <param name="credentials">The class that contains a login and password to access the services https://stocksharp.com .</param>
+            <param name="savePassword">Save password.</param>
+        </member>
+        <member name="T:StockSharp.Community.StrategyClient">
+            <summary>
+            The client for access to <see cref="T:StockSharp.Community.IStrategyService"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.StrategyClient"/>.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StockSharp.Community.StrategyClient"/>.
+            </summary>
+            <param name="address">Server address.</param>
+        </member>
+        <member name="P:StockSharp.Community.StrategyClient.Strategies">
+            <summary>
+            All strategies.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyClient.Subscriptions">
+            <summary>
+            Strategy subscriptions signed by <see cref="M:StockSharp.Community.StrategyClient.Subscribe(StockSharp.Community.StrategyData,System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyClient.StrategyBacktests">
+            <summary>
+            All strategy backtests.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.StrategyCreated">
+            <summary>
+            A new strategy was created in the store.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.StrategyUpdated">
+            <summary>
+            Existing strategy was updated in the store.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.StrategyDeleted">
+            <summary>
+            Existing strategy was deleted from the store.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.StrategySubscribed">
+            <summary>
+            Strategy was subscribed.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.StrategyUnSubscribed">
+            <summary>
+            Strategy was unsubscribed.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.BacktestProgressChanged">
+            <summary>
+            Backtesting process has changed.
+            </summary>
+        </member>
+        <member name="E:StockSharp.Community.StrategyClient.BacktestStopped">
+            <summary>
+            Backtesting process has stopped.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.CreateStrategy(StockSharp.Community.StrategyData)">
+            <summary>
+            To add the strategy to the store.
+            </summary>
+            <param name="strategy">The strategy data.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.UpdateStrategy(StockSharp.Community.StrategyData)">
+            <summary>
+            To update the strategy in the store.
+            </summary>
+            <param name="strategy">The strategy data.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.DeleteStrategy(StockSharp.Community.StrategyData)">
+            <summary>
+            To remove the strategy from the store.
+            </summary>
+            <param name="strategy">The strategy data.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.Subscribe(StockSharp.Community.StrategyData,System.Boolean)">
+            <summary>
+            To subscribe for the strategy.
+            </summary>
+            <param name="isAutoRenew">Is auto renewable subscription.</param>
+            <param name="strategy">The strategy data.</param>
+            <returns>The strategy subscription.</returns>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.UnSubscribe(StockSharp.Community.StrategySubscription)">
+            <summary>
+            To unsubscribe from the strategy.
+            </summary>
+            <param name="subscription">The strategy subscription.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.GetApproximateAmount(StockSharp.Community.StrategyBacktest)">
+            <summary>
+            To get an approximate of money to spend for the specified backtesting configuration.
+            </summary>
+            <param name="backtest">Backtesting session.</param>
+            <returns>An approximate of money.</returns>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.StartBacktest(StockSharp.Community.StrategyBacktest)">
+            <summary>
+            To start backtesing.
+            </summary>
+            <param name="backtest">Backtesting session.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.StopBacktest(StockSharp.Community.StrategyBacktest)">
+            <summary>
+            To stop the backtesing.
+            </summary>
+            <param name="backtest">Backtesting session.</param>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.GetDescription(System.Int64)">
+            <summary>
+            Get strategy info.
+            </summary>
+            <param name="id">Identifier.</param>
+            <returns>The strategy data.</returns>
+        </member>
+        <member name="M:StockSharp.Community.StrategyClient.DisposeManaged">
+            <summary>
+            Release resources.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyContentTypes">
+            <summary>
+            Strategy content types.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.SourceCode">
+            <summary>
+            Source code (if the strategy is distributed in source code).
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.CompiledAssembly">
+            <summary>
+            The compiled build (if the strategy is distributed as a finished build).
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.Schema">
+            <summary>
+            Schema in visual designer (if the strategy is distributed as a schema).
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.EncryptedSchema">
+            <summary>
+            Encrypted version of <see cref="F:StockSharp.Community.StrategyContentTypes.Schema"/>.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.StandaloneApp">
+            <summary>
+            The compiled executable (.exe) application.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyContentTypes.Indicator">
+            <summary>
+            Indicator.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyPriceTypes">
+            <summary>
+            Strategy price types.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyPriceTypes.Lifetime">
+            <summary>
+            Lifetime.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyPriceTypes.PerMonth">
+            <summary>
+            Per month.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyPriceTypes.Annual">
+            <summary>
+            Annual.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyData">
+            <summary>
+            The strategy data.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.CreationDate">
+            <summary>
+            The creation date.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Description">
+            <summary>
+            Strategy description.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Tags">
+            <summary>
+            Strategy tags.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.DescriptionId">
+            <summary>
+            The identifier of a topic in the forum where the strategy is discussed.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.PriceType">
+            <summary>
+            Type of <see cref="P:StockSharp.Community.StrategyData.Price"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Price">
+            <summary>
+            The purchase price.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.ContentType">
+            <summary>
+            Type of <see cref="P:StockSharp.Community.StrategyData.Content"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Content">
+            <summary>
+            Content.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Author">
+            <summary>
+            The author identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Picture">
+            <summary>
+            The picture identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.Revision">
+            <summary>
+            The content revision.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.UserId">
+            <summary>
+            User ID.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.IsPrivate">
+            <summary>
+            Only visible to author.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.IsColocation">
+            <summary>
+            Is colocation available for the strategy.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.PromoPrice">
+            <summary>
+            Promo price.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyData.PromoEnd">
+            <summary>
+            Promo end date.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategySubscription">
+            <summary>
+            The strategy subscription.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.StrategyId">
+            <summary>
+            Identifier of <see cref="T:StockSharp.Community.StrategyData"/>.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.Start">
+            <summary>
+            Start time.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.End">
+            <summary>
+            End time.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.Amount">
+            <summary>
+            Amount of the subscription.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.HardwareId">
+            <summary>
+            Hardware id of the computer for which the license is issued.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.Account">
+            <summary>
+            The account number for which the license is issued.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategySubscription.IsAutoRenew">
+            <summary>
+            Is auto renewable subscription.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.Products">
+            <summary>
+            Products.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Api">
+            <summary>
+            S#.API.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Hydra">
+            <summary>
+            S#.Data.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Studio">
+            <summary>
+            S#.Studio.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Designer">
+            <summary>
+            S#.Designer.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Terminal">
+            <summary>
+            S#.Designer.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.Products.Server">
+            <summary>
+            S#.Server.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.ISessionService">
+            <summary>
+            The interface describing the registration service.
+            </summary>
+        </member>
+        <member name="M:StockSharp.Community.ISessionService.CreateSession(StockSharp.Community.Products,System.Guid)">
+            <summary>
+            Create a new activity session.
+            </summary>
+            <param name="product">Product.</param>
+            <param name="sessionId">Session ID (authentication).</param>
+            <returns>Session ID (activity).</returns>
+        </member>
+        <member name="M:StockSharp.Community.ISessionService.Ping(System.Int64)">
+            <summary>
+            Track the session is alive.
+            </summary>
+            <param name="sessionId">Session ID (activity).</param>
+        </member>
+        <member name="M:StockSharp.Community.ISessionService.CloseSession(System.Int64)">
+            <summary>
+            Close the session.
+            </summary>
+            <param name="sessionId">Session ID (activity).</param>
+        </member>
+        <member name="T:StockSharp.Community.FileData">
+            <summary>
+            The file data.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.FileName">
+            <summary>
+            File name.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.Body">
+            <summary>
+            File body.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.BodyLength">
+            <summary>
+            File body length.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.IsPublic">
+            <summary>
+            Is the file available for public.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.Url">
+            <summary>
+            File url.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.FileData.CreationDate">
+            <summary>
+            Date of creation.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyBacktestMarketData">
+            <summary>
+            Backtesting market-data types.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyBacktestMarketData.Ticks">
+            <summary>
+            Ticks.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyBacktestMarketData.OrderBook">
+            <summary>
+            Order books.
+            </summary>
+        </member>
+        <member name="F:StockSharp.Community.StrategyBacktestMarketData.OrderLog">
+            <summary>
+            Full order log.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyBacktestIteration">
+            <summary>
+            Backtest iteration settings.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktestIteration.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktestIteration.BacktestId">
+            <summary>
+            The backtesting identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktestIteration.Begin">
+            <summary>
+            Begin time.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktestIteration.End">
+            <summary>
+            End time.
+            </summary>
+        </member>
+        <member name="T:StockSharp.Community.StrategyBacktest">
+            <summary>
+            Backtesting session.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.Id">
+            <summary>
+            Identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.StrategyId">
+            <summary>
+            The strategy identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.MarketData">
+            <summary>
+            Backtesting market-data type.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.SecurityId">
+            <summary>
+            The security identifier.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.Iterations">
+            <summary>
+            Iterations.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.MachineCount">
+            <summary>
+            Max machine to allocate. If <see langword="null"/> the allocation will be automatically.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.MaxAmount">
+            <summary>
+            The maximum possible amount of money to spend.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.IsMaxAmountUsd">
+            <summary>
+            Is the <see cref="P:StockSharp.Community.StrategyBacktest.MaxAmount"/> in USD.
+            </summary>
+        </member>
+        <member name="P:StockSharp.Community.StrategyBacktest.CreationDate">
+            <summary>
+            Date of creation.
+            </summary>
+        </member>
+    </members>
+</doc>

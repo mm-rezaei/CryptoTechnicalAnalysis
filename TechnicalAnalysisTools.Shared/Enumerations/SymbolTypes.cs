@@ -1,0 +1,45 @@
+﻿
+namespace TechnicalAnalysisTools.Shared.Enumerations
+{
+    public enum SymbolTypes
+    {
+        AdaUsdt,
+        AtomUsdt,
+        BchUsdt,
+        BnbUsdt,
+        BtcUsdt,
+        CelrUsdt,
+        ChzUsdt,
+        DashUsdt,
+        DgbUsdt,
+        DogeUsdt,
+        DotUsdt,
+        EosUsdt,
+        EtcUsdt,
+        EthBtc,
+        EthUsdt,
+        FilUsdt,
+        FtmUsdt,
+        GrtUsdt,
+        KsmUsdt,
+        LinkUsdt,
+        LtcUsdt,
+        LunaUsdt,
+        NeoUsdt,
+        OneUsdt,
+        QtumUsdt,
+        RoseUsdt,
+        RvnUsdt,
+        SolUsdt,
+        TfuelUsdt,
+        ThetaUsdt,
+        TomoUsdt,
+        TrxUsdt,
+        VetUsdt,
+        XlmUsdt,
+        XmrUsdt,
+        XrpUsdt,
+        ZecUsdt,
+        ZilUsdt
+    }
+}

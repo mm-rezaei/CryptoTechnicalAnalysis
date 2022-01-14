@@ -1,0 +1,192 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Forms.StrategyTestWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sx="http://schemas.stocksharp.com/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:controls="clr-namespace:TechnicalAnalysisTools.Ui.Win.Controls"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
+        mc:Ignorable="d"
+        Name="WindowStrategyTest"
+        Icon="../Images/Binance.png"
+        Closing="StrategyTest_Closing"
+        Title="Strategy Test" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFF9F9F9"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+        <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{StaticResource TabItem.Selected.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TabItem.Selected.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                                <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border x:Name="contentPanel" Grid.Row="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                                <TabPanel x:Name="headerPanel" Background="Transparent" IsItemsHost="true" Margin="2,2,2,0" Grid.Row="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
+                                <Button Name="ButtonTest" Width="120" Content="Start" Margin="0 2" Focusable="False" Loaded="ButtonTest_Loaded" Click="ButtonTest_Click" />
+                                <ComboBox Width="160" Margin="1 2" Focusable="False" Loaded="ComboBoxMinuteCandlePriceDirection_Loaded" />
+                                <ToggleButton Name="ToggleAutoRange" Width="160" Content="Auto Range Candles" Margin="0 2" IsChecked="True" Focusable="False" Loaded="ToggleAutoRange_Loaded" Checked="ToggleAutoRange_Checked" Unchecked="ToggleAutoRange_Unchecked" />
+                                <ToggleButton Name="ToggleShowLegend" Width="160" Content="Show Legend" Margin="0 2" IsChecked="True" Focusable="False" Loaded="ToggleShowLegend_Loaded" Checked="ToggleShowLegend_Checked" Unchecked="ToggleShowLegend_Unchecked" />
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GridColumnStyle" TargetType="{x:Type dxg:GridColumn}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding FieldType, RelativeSource={RelativeSource Self}}" Value="{x:Type sys:DateTime}">
+                    <Setter Property="CellTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <dxe:DateEdit x:Name="PART_Editor" Mask="dd MMM yyyy HH:mm:ss" MaskUseAsDisplayFormat="True" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Name="GridMain" Background="#FFF9F9F9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <sx:Chart x:Name="ChartMain" Grid.Row="0" IsInteracted="True" IsAutoRange="True" />
+        <GridSplitter Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <GridSplitter.Template>
+                <ControlTemplate TargetType="{x:Type GridSplitter}">
+                    <Grid>
+                        <Button VerticalContentAlignment="Top" BorderThickness="0 0.5" />
+                        <Rectangle Fill="#00FFFFFF" />
+                    </Grid>
+                </ControlTemplate>
+            </GridSplitter.Template>
+        </GridSplitter>
+        <TabControl Name="TabControlMain" Grid.Row="2" TabStripPlacement="Bottom" Background="#FFF9F9F9" BorderThickness="0" Style="{DynamicResource TabControlStyle}">
+            <TabItem Header="Settings">
+                <Grid Name="GridSettings" Margin="8 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="160" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Name</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Symbol</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">From</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">To</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center">Initial Deposit</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Center">Position</TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="26" VerticalContentAlignment="Center" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <ComboBox Name="ComboBoxSymbol" Grid.Row="1" Grid.Column="1" Height="26" SelectedItem="{Binding Symbol, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <dxe:DateEdit Grid.Row="2" Grid.Column="1" Height="26" ShowClearButton="False" ShowToday="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Mask="yyyy/MM/dd HH:mm" MaskUseAsDisplayFormat="True" DateTime="{Binding FromDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <dxe:DateEdit Grid.Row="3" Grid.Column="1" Height="26" ShowClearButton="False" ShowToday="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Mask="yyyy/MM/dd HH:mm" MaskUseAsDisplayFormat="True" DateTime="{Binding ToDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Height="26" VerticalContentAlignment="Center" Text="{Binding InitialBaseCoinDeposit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <ComboBox Name="ComboBoxPosition" Grid.Row="5" Grid.Column="1" Height="26" SelectedItem="{Binding Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center">Market Fee %</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">Leverage</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">Save Profit %</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center">Trade Amount Type</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="3" VerticalAlignment="Center">Trade Amount %</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="3" VerticalAlignment="Center">Trade Amount</TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="4" Height="26" VerticalContentAlignment="Center" Text="{Binding MarketFeePercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="4" Height="26" VerticalContentAlignment="Center" Text="{Binding Leverage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Grid.Row="2" Grid.Column="4" Height="26" VerticalContentAlignment="Center" Text="{Binding SaveProfitPercentOfWinPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <ComboBox Name="ComboBoxTradeAmountType" Grid.Row="3" Grid.Column="4" Height="26" SelectedItem="{Binding TradeAmountMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ComboBoxTradeAmountType_SelectionChanged"></ComboBox>
+                    <TextBox Name="TextBoxTradeAmountPercent" Grid.Row="4" Grid.Column="4" Height="26" VerticalContentAlignment="Center" Text="{Binding TradeAmountPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Name="TextBoxTradeAmountFixed" Grid.Row="5" Grid.Column="4" Height="26" VerticalContentAlignment="Center" Text="{Binding TradeAmountFixedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBlock Grid.Row="0" Grid.Column="6" VerticalAlignment="Center">Visual Mode</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="6" VerticalAlignment="Center">Visual TimeFrame</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="6" VerticalAlignment="Center">Visual TickFrame</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="6" VerticalAlignment="Center">Skip To</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="6" VerticalAlignment="Center">Speed</TextBlock>
+                    <CheckBox Grid.Row="0" Grid.Column="7" VerticalAlignment="Center" IsChecked="{Binding VisualMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <ComboBox Name="ComboBoxVisualTimeFrame" Grid.Row="1" Grid.Column="7" Height="26" IsEnabled="{Binding VisualMode, Mode=TwoWay}" SelectedItem="{Binding VisualTimeFrame, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <ComboBox Name="ComboBoxVisualTickFrame" Grid.Row="2" Grid.Column="7" Height="26" IsEnabled="{Binding VisualMode, Mode=TwoWay}" SelectedItem="{Binding VisualTickFrame, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <dxe:DateEdit Grid.Row="3" Grid.Column="7" Height="26" ShowClearButton="False" ShowToday="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Mask="yyyy/MM/dd HH:mm" MaskUseAsDisplayFormat="True" IsEnabled="{Binding VisualMode, Mode=TwoWay}" DateTime="{Binding VisualSkipToDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <dxe:TrackBarEdit Grid.Row="4" Grid.Column="7" Minimum="1" Maximum="100" IsEnabled="{Binding VisualMode, Mode=TwoWay}" Value="{Binding VisualTickPerSecond, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <ListBox Name="ListBoxIndicatorSelector" Grid.Row="0" Grid.Column="9" Grid.RowSpan="5" Grid.ColumnSpan="2" IsEnabled="{Binding VisualMode, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <CheckBox Content="{Binding Indicator}" IsChecked="{Binding Checked}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Expert" Height="22">
+                <Grid Name="GridExpert" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <controls:TradePositionUserControl Grid.Column="0" TradeSubOrderType="Enter" DataContext="{Binding Enter}" />
+                    <controls:TradePositionUserControl Grid.Column="1" TradeSubOrderType="ExitTakeProfit" DataContext="{Binding ExitTakeProfit}" />
+                    <controls:TradePositionUserControl Grid.Column="2" TradeSubOrderType="ExitStopLoss" DataContext="{Binding ExitStopLoss}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Logs">
+                <dxg:GridControl x:Name="GridControlLogs" AutoGenerateColumns="AddNew" Background="#FFF9F9F9" ColumnGeneratorStyle="{DynamicResource GridColumnStyle}">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" />
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+            </TabItem>
+            <TabItem Header="Orders">
+                <dxg:GridControl x:Name="GridControlOrders" AutoGenerateColumns="AddNew" Background="#FFF9F9F9" ColumnGeneratorStyle="{DynamicResource GridColumnStyle}">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" />
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+            </TabItem>
+            <TabItem Header="Graph">
+                <sx:Chart x:Name="ChartTotalBalanceGraph" Grid.Row="0" IsInteracted="True" IsAutoRange="True" ShowLegend="False" />
+            </TabItem>
+            <TabItem Header="Reports">
+                <dxprg:PropertyGridControl Name="PropertyGridControlReport" HeaderColumnMaxWidth="160" ShowProperties="All" ShowCategories="False" ShowSearchBox="True" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="#FFF9F9F9" ShowingEditor="PropertyGridControlReport_ShowingEditor" />
+            </TabItem>
+        </TabControl>
+        <ProgressBar Name="ProgressBarStrategyTest" Grid.Row="3" Minimum="0" Maximum="100"></ProgressBar>
+    </Grid>
+</Window>

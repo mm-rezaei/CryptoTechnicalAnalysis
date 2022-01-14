@@ -1,0 +1,65 @@
+﻿<XtraSerializer version="1.0" application="GridControl">
+  <property name="#LayoutVersion" isnull="true" />
+  <property name="$GridControl" iskey="true" value="GridControl">
+    <property name="UseFieldNameForSerialization">true</property>
+    <property name="GroupCount">0</property>
+    <property name="GroupSummary" iskey="true" value="0" />
+    <property name="SortInfo" iskey="true" value="0" />
+    <property name="Columns" iskey="true" value="6">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Name</property>
+        <property name="VisibleIndex">0</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Symbol</property>
+        <property name="VisibleIndex">1</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Position</property>
+        <property name="VisibleIndex">2</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item4" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Username</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">3</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item5" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">LastAlarm</property>
+        <property name="VisibleIndex">4</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+      <property name="Item6" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Price</property>
+        <property name="VisibleIndex">5</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+    </property>
+    <property name="View" isnull="true" iskey="true">
+      <property name="FormatConditions" iskey="true" value="0" />
+      <property name="ShowGroupPanel">false</property>
+      <property name="DetailHeaderContent" type="System.String">Alarms</property>
+      <property name="ColumnChooserState" isnull="true" iskey="true">
+        <property name="Location">565.2,162.8</property>
+        <property name="Size">220,250</property>
+      </property>
+    </property>
+    <property name="TotalSummary" iskey="true" value="0" />
+    <property name="MRUFilters" iskey="true" value="0" />
+    <property name="GroupSummarySortInfo" iskey="true" value="0" />
+  </property>
+</XtraSerializer>

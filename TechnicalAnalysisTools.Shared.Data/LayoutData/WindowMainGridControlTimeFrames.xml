@@ -1,0 +1,471 @@
+﻿<XtraSerializer version="1.0" application="GridControl">
+  <property name="#LayoutVersion" isnull="true" />
+  <property name="$GridControl" iskey="true" value="GridControl">
+    <property name="UseFieldNameForSerialization">true</property>
+    <property name="GroupCount">0</property>
+    <property name="GroupSummary" iskey="true" value="0" />
+    <property name="SortInfo" iskey="true" value="0" />
+    <property name="Columns" iskey="true" value="56">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IsAscending</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">0</property>
+        <property name="Width">14</property>
+        <property name="ActualWidth">14</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">ChangedPercent</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">1</property>
+        <property name="Width">50</property>
+        <property name="ActualWidth">50</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">TimeFrame</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">2</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item4" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Open</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">3</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item5" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Close</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">4</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item6" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">High</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">5</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item7" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Low</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">6</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item8" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Volume</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">7</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item9" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">QuoteVolume</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">8</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item10" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">CandleType</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">9</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item11" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">BollingerBandsBasis</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">10</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item12" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">BollingerUpper</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">11</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item13" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">BollingerLower</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">12</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item14" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema9Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">13</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item15" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema20Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">14</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item16" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema26Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">15</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item17" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema30Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">16</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item18" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema40Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">17</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item19" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema50Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">18</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item20" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema100Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">19</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item21" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ema200Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">20</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item22" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuTenkanSen</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">21</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item23" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuKijunSen</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">22</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item24" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuSenkouSpanA</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">23</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item25" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuSenkouSpanB</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">24</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item26" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuSenkouSpanA26</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">25</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item27" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">IchimokuSenkouSpanB26</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">26</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item28" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">MacdValue</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">27</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item29" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">MacdSignal</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">28</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item30" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">MacdHistogram</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">29</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item31" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">MfiValue</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">30</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item32" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RsiValue</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">31</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item33" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma9Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">32</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item34" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma20Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">33</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item35" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma26Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">34</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item36" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma30Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">35</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item37" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma40Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">36</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item38" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma50Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">37</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item39" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma100Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">38</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item40" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">Sma200Value</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">39</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item41" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">StochKValue</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">40</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item42" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">StochDValue</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">41</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item43" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">StochRsiKValue</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">42</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item44" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">StochRsiDValue</property>
+        <property name="Visible">false</property>
+        <property name="VisibleIndex">43</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item45" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularRsiDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">44</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item46" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularStochasticKValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">45</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item47" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularStochasticDValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">46</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item48" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularMacdValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">47</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item49" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularMacdSignalDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">48</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item50" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">RegularMacdHistogramDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">49</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item51" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenRsiDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">50</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item52" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenStochasticKValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">51</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item53" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenStochasticDValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">52</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item54" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenMacdValueDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">53</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item55" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenMacdSignalDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">54</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+      <property name="Item56" isnull="true" iskey="true">
+        <property name="GridRow">0</property>
+        <property name="FieldName">HiddenMacdHistogramDivergence</property>
+        <property name="Visible">true</property>
+        <property name="VisibleIndex">55</property>
+        <property name="Width">70</property>
+        <property name="ActualWidth">70</property>
+      </property>
+    </property>
+    <property name="View" isnull="true" iskey="true">
+      <property name="FormatConditions" iskey="true" value="0" />
+      <property name="ShowGroupPanel">false</property>
+      <property name="DetailHeaderContent" type="System.String">TimeFrames</property>
+      <property name="ColumnChooserState" isnull="true" iskey="true">
+        <property name="Location">1199.6,300.4</property>
+        <property name="Size">220,250</property>
+      </property>
+    </property>
+    <property name="TotalSummary" iskey="true" value="0" />
+    <property name="MRUFilters" iskey="true" value="0" />
+    <property name="GroupSummarySortInfo" iskey="true" value="0" />
+  </property>
+</XtraSerializer>

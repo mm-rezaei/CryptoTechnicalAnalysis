@@ -1,0 +1,626 @@
+﻿<Window x:Class="TechnicalAnalysisTools.Ui.Win.Forms.LiveHistoryWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:convertors="clr-namespace:TechnicalAnalysisTools.Shared.ValueConverters;assembly=TechnicalAnalysisTools.Shared"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Name="WindowLiveHistory"
+        Icon="../Images/Binance.png"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen"
+        Title="Live History" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="MainViewRowStyle" TargetType="dxg:RowControl">
+            <Setter Property="Background" Value="RoyalBlue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="AlarmViewRowStyle" TargetType="dxg:RowControl">
+            <Setter Property="Foreground" Value="{Binding DataContext.AlarmForgroundColor}" />
+            <Setter Property="Background" Value="{Binding DataContext.AlarmBackgroundColor}" />
+        </Style>
+        <Style x:Key="SupportResistanceViewRowStyle" TargetType="dxg:RowControl">
+            <Setter Property="Foreground" Value="{Binding DataContext.SupportResistanceForgroundColor}" />
+            <Setter Property="Background" Value="{Binding DataContext.SupportResistanceBackgroundColor}" />
+        </Style>
+        <convertors:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+        <convertors:SymbolIsAscendingValueToBrushConverter x:Key="SymbolIsAscendingValueToBrushConverter" />
+        <convertors:TimeFrameIsAscendingValueToBrushConverter x:Key="TimeFrameIsAscendingValueToBrushConverter" />
+        <convertors:DivergenceValueToBrushConverter x:Key="DivergenceValueToBrushConverter" />
+        <convertors:PercentFloatNumberToPercentStringConverter x:Key="PercentFloatNumberToPercentStringConverter" />
+        <convertors:FloatNumberToStringConverter x:Key="FloatNumberToStringConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="28" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Name="GridMain" Grid.Row="0">
+                <dxg:GridControl x:Name="GridControlMain">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" DetailHeaderContent="Candles" RowStyle="{StaticResource MainViewRowStyle}" />
+                    </dxg:GridControl.View>
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn Width="14" Header="" AllowResizing="False" AllowAutoFilter="False" AllowColumnFiltering="False" AllowSorting="False" FieldName="IsAscending">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <Border Width="8" Background="{Binding Value,  Converter={StaticResource  SymbolIsAscendingValueToBrushConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Width="50" Header="%" FieldName="ChangedPercent">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  PercentFloatNumberToPercentStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Symbol" FieldName="Symbol" />
+                        <dxg:GridColumn Header="Last Update" FieldName="LastMinuteCandle">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Margin="3 0 0 0"  Text="{Binding Value,  Converter={StaticResource  DateTimeToStringConverter}}"/>
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Type" FieldName="CandleType" />
+                        <dxg:GridColumn Header="Open" FieldName="Open">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Close" FieldName="Close">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="High" FieldName="High">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Low" FieldName="Low">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Volume" FieldName="Volume">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="QuoteVolume" FieldName="QuoteVolume">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Trades Count" FieldName="NumberOfTrades">
+                            <dxg:GridColumn.DisplayTemplate>
+                                <ControlTemplate>
+                                    <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                </ControlTemplate>
+                            </dxg:GridColumn.DisplayTemplate>
+                        </dxg:GridColumn>
+                    </dxg:GridControl.Columns>
+                    <dxg:GridControl.DetailDescriptor>
+                        <dxg:TabViewDetailDescriptor>
+                            <dxg:TabViewDetailDescriptor.DetailDescriptors>
+                                <dxg:DataControlDetailDescriptor ItemsSourcePath="SymbolTimeFrames">
+                                    <dxg:DataControlDetailDescriptor.DataControl>
+                                        <dxg:GridControl Name="GridControlTimeFrames">
+                                            <dxg:GridControl.View>
+                                                <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" DetailHeaderContent="TimeFrames" />
+                                            </dxg:GridControl.View>
+                                            <dxg:GridControl.Columns>
+                                                <dxg:GridColumn Width="14" Header="" AllowResizing="False" AllowAutoFilter="False" AllowColumnFiltering="False" AllowSorting="False" FieldName="IsAscending">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Width="8" Background="{Binding Value,  Converter={StaticResource  TimeFrameIsAscendingValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="50" Header="%" FieldName="ChangedPercent">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  PercentFloatNumberToPercentStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="TimeFrame" FieldName="TimeFrame">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Open" FieldName="Open">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Close" FieldName="Close">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="High" FieldName="High" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Low" FieldName="Low" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Volume" FieldName="Volume">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="QuoteVolume" FieldName="QuoteVolume" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Type" FieldName="CandleType" />
+                                                <dxg:GridColumn Width="80" Header="Bollinger" FieldName="BollingerBandsBasis" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Bollinger U" FieldName="BollingerUpper" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Bollinger L" FieldName="BollingerLower" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 9" FieldName="Ema9Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 20" FieldName="Ema20Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 26" FieldName="Ema26Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 30" FieldName="Ema30Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 40" FieldName="Ema40Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 50" FieldName="Ema50Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 100" FieldName="Ema100Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ema 200" FieldName="Ema200Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi TenkanSen" FieldName="IchimokuTenkanSen" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi KijunSen" FieldName="IchimokuKijunSen" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi SpanA" FieldName="IchimokuSenkouSpanA" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi SpanB" FieldName="IchimokuSenkouSpanB" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi SpanA 26" FieldName="IchimokuSenkouSpanA26" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Ichi SpanB 26" FieldName="IchimokuSenkouSpanB26" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Macd" FieldName="MacdValue" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Macd S" FieldName="MacdSignal" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Macd H" FieldName="MacdHistogram" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Mfi" FieldName="MfiValue" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Rsi" FieldName="RsiValue">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 9" FieldName="Sma9Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 20" FieldName="Sma20Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 26" FieldName="Sma26Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 30" FieldName="Sma30Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 40" FieldName="Sma40Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 50" FieldName="Sma50Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 100" FieldName="Sma100Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sma 200" FieldName="Sma200Value" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sto K" FieldName="StochKValue">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="Sto D" FieldName="StochDValue">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="StoRsi K" FieldName="StochRsiKValue" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="80" Header="StoRsi D" FieldName="StochRsiDValue" Visible="False">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Rsi" FieldName="RegularRsiDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Sto K" FieldName="RegularStochasticKValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Sto D" FieldName="RegularStochasticDValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Macd" FieldName="RegularMacdValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Macd S" FieldName="RegularMacdSignalDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥⭥ Macd H" FieldName="RegularMacdHistogramDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Rsi" FieldName="HiddenRsiDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Sto K" FieldName="HiddenStochasticKValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Sto D" FieldName="HiddenStochasticDValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Macd" FieldName="HiddenMacdValueDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Macd S" FieldName="HiddenMacdSignalDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn Width="70" Header="⭥ Macd H" FieldName="HiddenMacdHistogramDivergence">
+                                                    <dxg:GridColumn.DisplayTemplate>
+                                                        <ControlTemplate>
+                                                            <Border Background="{Binding Value,  Converter={StaticResource  DivergenceValueToBrushConverter}}" />
+                                                        </ControlTemplate>
+                                                    </dxg:GridColumn.DisplayTemplate>
+                                                </dxg:GridColumn>
+                                            </dxg:GridControl.Columns>
+                                        </dxg:GridControl>
+                                    </dxg:DataControlDetailDescriptor.DataControl>
+                                </dxg:DataControlDetailDescriptor>
+                                <dxg:DataControlDetailDescriptor ItemsSourcePath="SymbolAlarms">
+                                    <dxg:DataControlDetailDescriptor.DataControl>
+                                        <dxg:GridControl Name="GridControlAlarms">
+                                            <dxg:GridControl.View>
+                                                <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" DetailHeaderContent="Alarms" RowStyle="{StaticResource AlarmViewRowStyle}">
+                                                    <dxg:TableView.RowCellMenuCustomizations>
+                                                        <dxb:BarButtonItem Name="MenuItemViewScript" Content="View Alarm Script" ItemClick="MenuItemViewScript_ItemClick"/>
+                                                        <dxb:BarButtonItem Name="MenuItemEvaluateAlarmViewerWindow" Content="_Evaluate Alarm" ItemClick="MenuItemEvaluateAlarmViewerWindow_ItemClick" />
+                                                    </dxg:TableView.RowCellMenuCustomizations>
+                                                </dxg:TableView>
+                                            </dxg:GridControl.View>
+                                            <dxg:GridControl.Columns>
+                                                <dxg:GridColumn Width="80" Header="Name" FieldName="Name" />
+                                                <dxg:GridColumn Width="80" Header="Symbol" FieldName="Symbol" />
+                                                <dxg:GridColumn Width="80" Header="Position" FieldName="Position" />
+                                            </dxg:GridControl.Columns>
+                                        </dxg:GridControl>
+                                    </dxg:DataControlDetailDescriptor.DataControl>
+                                </dxg:DataControlDetailDescriptor>
+                                <dxg:DataControlDetailDescriptor ItemsSourcePath="SupportsResistances">
+                                    <dxg:GridControl Name="GridControlSupportResistance">
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" AllowEditing="False" NavigationStyle="Row" AllowSorting="False" DetailHeaderContent="Supports/Resistances" RowStyle="{StaticResource SupportResistanceViewRowStyle}" />
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn Width="80" Header="Name" FieldName="Name" />
+                                            <dxg:GridColumn Width="80" Header="TimeFrame" FieldName="TimeFrame">
+                                                <dxg:GridColumn.DisplayTemplate>
+                                                    <ControlTemplate>
+                                                        <TextBlock Text="{Binding Value}" />
+                                                    </ControlTemplate>
+                                                </dxg:GridColumn.DisplayTemplate>
+                                            </dxg:GridColumn>
+                                            <dxg:GridColumn Width="80" Header="Distance" FieldName="Percent">
+                                                <dxg:GridColumn.DisplayTemplate>
+                                                    <ControlTemplate>
+                                                        <TextBlock Text="{Binding Value,  Converter={StaticResource  PercentFloatNumberToPercentStringConverter}}" />
+                                                    </ControlTemplate>
+                                                </dxg:GridColumn.DisplayTemplate>
+                                            </dxg:GridColumn>
+                                            <dxg:GridColumn Header="Price" FieldName="Price">
+                                                <dxg:GridColumn.DisplayTemplate>
+                                                    <ControlTemplate>
+                                                        <TextBlock Text="{Binding Value,  Converter={StaticResource  FloatNumberToStringConverter}}" />
+                                                    </ControlTemplate>
+                                                </dxg:GridColumn.DisplayTemplate>
+                                            </dxg:GridColumn>
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </dxg:DataControlDetailDescriptor>
+                            </dxg:TabViewDetailDescriptor.DetailDescriptors>
+                        </dxg:TabViewDetailDescriptor>
+                    </dxg:GridControl.DetailDescriptor>
+                </dxg:GridControl>
+            </Grid>
+        </Grid>
+        <Grid  Grid.Row="1" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="ButtonGoFirst" Grid.Column="1" Margin="1 0" Content="&lt;&lt;" VerticalContentAlignment="Center" Click="ButtonGoFirst_Click" />
+            <Button Name="ButtonPreviousWeek1" Grid.Column="2" Margin="1 0" Content="&lt; W1" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousDay1" Grid.Column="3" Margin="1 0" Content="&lt; D1" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousHour4" Grid.Column="4" Margin="1 0" Content="&lt; H4" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousHour1" Grid.Column="5" Margin="1 0" Content="&lt; H1" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousMinute15" Grid.Column="6" Margin="1 0" Content="&lt; M15" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousMinute5" Grid.Column="7" Margin="1 0" Content="&lt; M5" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonPreviousMinute1" Grid.Column="8" Margin="1 0" Content="&lt; M1" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <dxe:DateEdit Name="DateEditCurrentDateTime" Grid.Column="9" Margin="1 0" Width="160" ShowClearButton="False" ShowToday="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Mask="yyyy/MM/dd HH:mm" MaskUseAsDisplayFormat="True" />
+            <Button Name="ButtonGo" Grid.Column="10" Margin="1 0" Content="Go" VerticalContentAlignment="Center" Click="ButtonGo_Click" />
+            <Button Name="ButtonNextMinute1" Grid.Column="11" Margin="1 0" Content="M1 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextMinute5" Grid.Column="12" Margin="1 0" Content="M5 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextMinute15" Grid.Column="13" Margin="1 0" Content="M15 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextHour1" Grid.Column="14" Margin="1 0" Content="H1 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextHour4" Grid.Column="15" Margin="1 0" Content="H4 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextDay1" Grid.Column="16" Margin="1 0" Content="D1 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonNextWeek1" Grid.Column="17" Margin="1 0" Content="W1 >" VerticalContentAlignment="Center" Click="ButtonNavigation_Click" />
+            <Button Name="ButtonGoLast" Grid.Column="18" Margin="1 0" Content=">>" VerticalContentAlignment="Center" Click="ButtonGoLast_Click" />
+        </Grid>
+    </Grid>
+</Window>

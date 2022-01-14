@@ -1,0 +1,106 @@
+USE [master]
+GO
+
+/****** Object:  Database [CryptoHistoricalData]    Script Date: 1/19/2021 2:56:18 PM ******/
+CREATE DATABASE [CryptoHistoricalData]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'CryptoHistoricalData', FILENAME = N'E:\Cryptocurrency\TechnicalAnalysisTools\TechnicalAnalysisTools.Data\Database\CryptoHistoricalData.mdf' , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'CryptoHistoricalData_log', FILENAME = N'E:\Cryptocurrency\TechnicalAnalysisTools\TechnicalAnalysisTools.Data\Database\CryptoHistoricalData_log.ldf' , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET DELAYED_DURABILITY = DISABLED 
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET QUERY_STORE = OFF
+GO
+
+ALTER DATABASE [CryptoHistoricalData] SET  READ_WRITE 
+GO
+
+
