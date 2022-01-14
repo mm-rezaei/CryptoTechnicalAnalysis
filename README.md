@@ -279,3 +279,36 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:1:Minute5:Equal (Field Name=Close, Value=1523)
 }
 ```
+* EqualFields: The result of the evaluation is correct only if the mentioned field is equaled to another field.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:EqualFields (Field Name 1=Close, Field Name 2=Ema9Value)
+}
+```
+* Touch: The result of the evaluation is correct only if the mentioned field is touched a value.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:Touch (Field Name=Close, Value=2500)
+}
+```
+* TouchField: The result of the evaluation is correct only if the mentioned field is touched a field value.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-EqualFields:1:Minute5:TouchField (Field Name 1=Close, Field Name 2=Ema20Value)
+}
+```
