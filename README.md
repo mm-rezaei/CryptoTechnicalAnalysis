@@ -234,3 +234,15 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
 }
 ```
+### Other Operation:
+* Divergence: The result of the evaluation is correct only if the mentioned divergence is correct.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:Divergence (DivergenceType=RegularAscendingRsi)
+}
+```
