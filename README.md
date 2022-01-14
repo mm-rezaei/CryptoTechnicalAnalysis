@@ -84,5 +84,16 @@ The video below shows how to use this product briefly. In reviewing the differen
 
 
 ## Strategy and Alarm Samples
-
-
+* Logical Operation:
+    * And: The evaluation result is correct only if all the conditions of its subset are correct.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+	-BtcUsdt:0:Minute5:TouchField (Field Name 1=Close, Field Name 2=Ema20Value)
+}
+```
