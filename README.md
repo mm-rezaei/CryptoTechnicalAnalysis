@@ -246,3 +246,36 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:1:Minute5:Divergence (DivergenceType=RegularAscendingRsi)
 }
 ```
+* Decrease: The result of the evaluation is correct only if the mentioned field is decreased.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:Decrease (Field Name=Close, Previous Candle No=0)
+}
+```
+* Increase: The result of the evaluation is correct only if the mentioned field is increased.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* Equal: The result of the evaluation is correct only if the mentioned field is equaled to a number.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:Equal (Field Name=Close, Value=1523)
+}
+```
