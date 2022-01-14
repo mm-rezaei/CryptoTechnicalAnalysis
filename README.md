@@ -97,3 +97,37 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:0:Minute5:TouchField (Field Name 1=Close, Field Name 2=Ema20Value)
 }
 ```
+* Or: Only the result of the evaluation is correct if one of the conditions of its subset is correct.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-Or
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+	-BtcUsdt:0:Minute5:TouchField (Field Name 1=Close, Field Name 2=Ema20Value)
+}
+```
+* AndForNumbers: The evaluation result is correct if the only condition of its subset is correct for the candlesticks number mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-AndForNumbers (Lower Number=0, Upper Number=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* OrForNumbers: The evaluation result is correct if the only condition of its subset is correct only for one of the candlesticks number mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-OrForNumbers (Lower Number=0, Upper Number=2)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
