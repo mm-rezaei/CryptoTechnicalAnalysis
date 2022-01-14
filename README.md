@@ -131,3 +131,25 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
 }
 ```
+* AndForTimeFrames: The evaluation result is correct if the only condition of its subset is correct for the timeframes mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-AndForTimeFrames (Lower TimeFrame=Minute1, Upper TimeFrame=Minute15)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
+* OrForTimeFrames: The evaluation result is correct if the only condition of its subset is correct only for one of the timeframes mentioned.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-OrForTimeFrames (Lower TimeFrame=Minute1, Upper TimeFrame=Minute15)
+{
+	-BtcUsdt:0:Minute5:Increase (Field Name=Close, Previous Candle No=0)
+}
+```
