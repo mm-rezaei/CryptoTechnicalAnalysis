@@ -312,3 +312,205 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-EqualFields:1:Minute5:TouchField (Field Name 1=Close, Field Name 2=Ema20Value)
 }
 ```
+* GreaterThan: The result of the evaluation is correct only if the mention field is greater than a value.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:GreaterThan (Field Name=Close, Value=1200)
+}
+```
+* GreaterFieldThanAnotherField: The result of the evaluation is correct only if the mention field is greater than another field.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:GreaterFieldThanAnotherField (Field Name 1=Close, Field Name 2=Ema9Value)
+}
+```
+* SmallerThan: The result of the evaluation is correct only if the mention field is smaller than a value.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:SmallerThan (Field Name=Close, Value=1200)
+}
+```
+* SmallerFieldThanAnotherField: The result of the evaluation is correct only if the mention field is smaller than another field.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:SmallerFieldThanAnotherField (Field Name 1=Close, Field Name 2=Ema9Value)
+}
+```
+* CrossDown: The result of the evaluation is correct only if the mention field is crossed a number level down.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:CrossDown (Field Name=Close, Value=1250, Previous Candle No=1)
+}
+```
+* CrossUp: The result of the evaluation is correct only if the mention field is crossed a number level up.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:CrossUp (Field Name=Close, Value=1250, Previous Candle No=1)
+}
+```
+* CrossDownAnotherField: The result of the evaluation is correct only if the mention field is crossed a field value level down.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:CrossDownAnotherField (Field Name 1=Close, Field Name 2=Ema9Value, Previous Candle No=0)
+}
+```
+* CrossUpAnotherField: The result of the evaluation is correct only if the mention field is crossed a field value level up.
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute5:CrossUpAnotherField (Field Name 1=Close, Field Name 2=Ema9Value, Previous Candle No=0)
+}
+```
+* Pump: The result of the evaluation is correct only if the mention field grows by a certain amount percent in the specific time period. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:Pump (Field Name=Close, Changed %=1, Previous Candle No=4)
+}
+```
+* Dump: The result of the evaluation is correct only if the mention field decreases by a certain amount percent in the spesific time period. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:Dump (Field Name=Close, Changed %=1, Previous Candle No=4)
+}
+```
+* IsCandleType: The result of the evaluation is correct only if the candle mentioned is of a certain type. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsCandleType (Candle Type=Bullish)
+}
+```
+* IsFirstTimeFrameCandle: The result of the evaluation is correct only if a new candlestick starts at a specified timeframe after a certain number of minutes. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsFirstTimeFrameCandle (Next Minutes Count=1)
+}
+```
+* IsLastTimeFrameCandle: The result of the evaluation is correct only if a new candlestick ends at a specified timeframe after a certain number of minutes. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsLastTimeFrameCandle (Next Minutes Count=1)
+}
+```
+* IsStockExchangeOpen: The result of the evaluation is correct only if the specified market is open at that time. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsStockExchangeOpen (Stock Exchange=Forex, Previous Candle No=0)
+}
+```
+* IsCandleMinuteBetween: The result of the evaluation is correct only if the candlestick minute number is between two numbers. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsCandleMinuteBetween (Start Minute=30, End Minute=59)
+}
+```
+* IsCandleHourBetween: The result of the evaluation is correct only if the candlestick hour number is between two numbers. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsCandleHourBetween (Start Hour=8, End Hour=15)
+}
+```
+* IsCandleDayOfMonthBetween: The result of the evaluation is correct only if the candlestick day number of month is between two numbers. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsCandleDayOfMonthBetween (Start Day=15, End Day=21)
+}
+```
+* IsCandleDayOfWeek: The evaluation result is only correct if the candle day is a specific day of the week. 
+```
+#Sample
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:1:Minute1:IsCandleDayOfWeek (Day of Week=Sunday)
+}
+```
+* Script: 
+```
+
+```
