@@ -510,7 +510,35 @@ The video below shows how to use this product briefly. In reviewing the differen
 	-BtcUsdt:1:Minute1:IsCandleDayOfWeek (Day of Week=Sunday)
 }
 ```
-* Script: 
+* Script: The result of the evaluation is equal to the result of a script written in C# language and added to the server as a dll. The following is also the source code of a script in C# language. 
 ```
+#asfa
+#BtcUsdt
+#Long
+#Condition
+-And
+{
+	-BtcUsdt:0:Minute1:Script (Script Name=SampleCode.dll)
+}
+```
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TechnicalAnalysisTools.Shared.Conditions;
+using TechnicalAnalysisTools.Shared.Delegates;
+using TechnicalAnalysisTools.Shared.Enumerations;
 
+namespace TechnicalAnalysisTools.ScriptCondition
+{
+    public class ScriptCondition : ScriptConditionBase
+    {
+        protected override List<TimeFrames> SupportedTimeFrames { get; } = ((TimeFrames[])Enum.GetValues(typeof(TimeFrames))).ToList();
+
+        protected override bool CalculateByScript(OperationCandleRequestedHandler operationCandleRequested, SymbolTypes symbol, TimeFrames timeFrame, int candleNumber)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}
 ```
